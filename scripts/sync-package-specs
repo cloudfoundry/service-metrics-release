@@ -30,7 +30,7 @@ function sync_package() {
   )
 }
 
-sync_package service-metrics -app github.com/pivotal-cf/service-metrics
+sync_package service-metrics -app github.com/cloudfoundry/service-metrics
 
 wait
 

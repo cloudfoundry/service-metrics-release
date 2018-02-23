@@ -16,6 +16,6 @@ export GOPATH=$BOSH_INSTALL_TARGET
 export GOROOT=$(readlink -nf /var/vcap/packages/go)
 export PATH=$GOROOT/bin:$PATH
 
-go install github.com/pivotal-cf/service-metrics
+go install github.com/cloudfoundry/service-metrics
 
 rm -rf ${BOSH_INSTALL_TARGET}/src ${BOSH_INSTALL_TARGET}/pkg
