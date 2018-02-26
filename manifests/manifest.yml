@@ -34,7 +34,7 @@ instance_groups:
     release: service-metrics
     properties:
       service_metrics:
-        origin: metrics-source
+        origin: service-metrics-injector
         execution_interval_seconds: 5
         metrics_command: /bin/echo
         metrics_command_args:
