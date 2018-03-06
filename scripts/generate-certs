@@ -1,0 +1,31 @@
+#!/bin/sh
+
+set -ex
+
+readlink() {
+  (
+    cd $(dirname $1)
+    echo $PWD/$(basename $1)
+  )
+}
+
+# Place keys and certificates here
+depot_path=$(readlink ./certs)
+mkdir -p ${depot_path}
+
+ca_name="loggregator-ca"
+
+# Install certstrap
+go get -v github.com/square/certstrap
+
+# CA to distribute to loggregator certs
+certstrap --depot-path ${depot_path} init --passphrase '' --common-name $ca_name
+
+# Service Metrics certificate
+certstrap --depot-path ${depot_path} request-cert --passphrase '' --common-name service-metrics
+certstrap --depot-path ${depot_path} sign service-metrics --CA $ca_name --expires "25 years"
+
+# Metron certificate
+certstrap --depot-path ${depot_path} request-cert --passphrase '' --common-name metron
+certstrap --depot-path ${depot_path} sign metron --CA $ca_name --expires "25 years"
+
