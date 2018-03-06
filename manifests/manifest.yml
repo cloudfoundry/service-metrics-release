@@ -17,8 +17,17 @@ releases:
   version: latest
 - name: loggregator
   version: latest
-- name: consul
-  version: latest
+- name: bosh-dns
+  version: 0.2.0
+
+addons:
+- name: bosh-dns
+  include:
+    stemcell:
+    - os: ubuntu-trusty
+  jobs:
+  - name: bosh-dns
+    release: bosh-dns
 
 instance_groups:
 - name: service-metrics
@@ -41,31 +50,60 @@ instance_groups:
         - -n
         - '[{"key":"service-dummy","value":99,"unit":"metric"}]'
         monit_dependencies: []
+        tls:
+          cert: ((service-metrics.certificate))
+          key: ((service-metrics.private_key))
+          ca: ((service-metrics.ca))
 
   - name: metron_agent
     release: loggregator
+    consumes:
+      doppler: {from: doppler, deployment: loggregator}
     properties:
+      metron_agent:
+        bosh_dns: true
+        disable_udp: true
       loggregator:
         tls:
           metron:
-            cert: ((loggregator_tls_metron.certificate))
-            key: ((loggregator_tls_metron.private_key))
-          ca_cert: ((loggregator_tls_metron.ca))
+            cert: ((loggregator_agent.certificate))
+            key: ((loggregator_agent.private_key))
+          ca_cert: ((loggregator_agent.ca))
 
-  - name: consul_agent
-    release: consul
-    consumes:
-      consul: nil
-      consul_client:
-        from: consul_client_link
-        deployment: cf
-      consul_common:
-        from: consul_common_link
-        deployment: cf
-      consul_server: nil
+
+variables:
+- name: loggregator_ca
+  type: certificate
+  options:
+    common_name: loggregatorCA
+    is_ca: true
+- name: service-metrics
+  type: certificate
+  options:
+    ca: loggregator_ca
+    common_name: service-metrics
+    extended_key_usage:
+    - client_auth
+- name: loggregator_agent
+  type: certificate
+  options:
+    ca: loggregator_ca
+    common_name: agent
+    alternative_names:
+    - metron
+    - agent
+    - localhost
+    - 127.0.0.1
+    - ip6-localhost
+    - ::1
+    extended_key_usage:
+    - client_auth
+    - server_auth
 
 update:
   canaries: 1
   max_in_flight: 1
   canary_watch_time: 1000-60000
   update_watch_time: 1000-60000
+
+

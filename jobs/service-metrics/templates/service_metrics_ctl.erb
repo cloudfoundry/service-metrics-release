@@ -51,7 +51,10 @@ case $1 in
 
     exec chpst -u vcap:vcap ${pkg_dir}/bin/service-metrics \
       --origin <%= p('service_metrics.origin') %> \
-      --metron-addr localhost:<%= p("metron_agent.dropsonde_incoming_port") %> \
+      --agent-addr localhost:<%= p("loggregator_agent.ingress_port") %> \
+      --ca $job_dir/config/certs/ca.crt \
+      --cert $job_dir/config/certs/client.crt \
+      --key $job_dir/config/certs/client.key \
       --metrics-cmd <%= p("service_metrics.metrics_command") %> \
       <%= p("service_metrics.metrics_command_args").collect { |e| "--metrics-cmd-arg '#{e}'" }.join(" ") %> \
       --metrics-interval <%= p("service_metrics.execution_interval_seconds") %>s \

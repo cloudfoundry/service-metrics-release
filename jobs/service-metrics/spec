@@ -10,6 +10,9 @@ name: service-metrics
 templates:
   service_metrics_ctl.erb: bin/service_metrics_ctl
   drain.erb: bin/drain
+  ca.crt.erb: config/certs/ca.crt
+  client.crt.erb: config/certs/client.crt
+  client.key.erb: config/certs/client.key
 
 packages:
 - service-metrics_utils
@@ -17,7 +20,7 @@ packages:
 
 properties:
   service_metrics.origin:
-    description: "Used when initialising dropsonde. Should be set to something descriptive of the deployment (e.g. service-name)"
+    description: "Used when initializing loggregator. Should be set to something descriptive of the deployment (e.g. service-name)"
   service_metrics.metrics_command:
     description: "Command to obtain metrics in JSON format"
     default: /var/vcap/jobs/service-metrics-adapter/bin/collect-service-metrics
@@ -33,7 +36,14 @@ properties:
   service_metrics.monit_dependencies:
     description: "Array of monit service dependencies"
     default: []
+  service_metrics.tls.ca:
+    description: "Loggregator CA certificate file"
+  service_metrics.tls.cert:
+    description: "Service metrics client certificate"
+  service_metrics.tls.key:
+    description: "Service metrics client private key"
 
-  metron_agent.dropsonde_incoming_port:
-    description: "Incoming port for dropsonde log messages"
-    default: 3457
+  loggregator_agent.ingress_port:
+    description: "Incoming port for log messages"
+    default: 3458
+
