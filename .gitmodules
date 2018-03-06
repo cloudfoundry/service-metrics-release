@@ -36,7 +36,7 @@
 	url = https://github.com/google/go-genproto
 [submodule "src/google.golang.org/grpc"]
 	path = src/google.golang.org/grpc
-	url = https://github.com/google/go-grpc
+	url = https://github.com/grpc/grpc-go
 [submodule "src/gopkg.in/yaml.v2"]
 	path = src/gopkg.in/yaml.v2
 	url = https://gopkg.in/yaml.v2
