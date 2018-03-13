@@ -30,7 +30,7 @@ describe 'Service Metrics Ctl script' do
     end
 
     it 'templates the default dropsonde_incoming_port' do
-      expect(@control_script).to include('--metron-addr localhost:3457')
+      expect(@control_script).to include('--agent-addr localhost:3458')
     end
 
     it 'templates the default metrics_command' do
@@ -49,6 +49,10 @@ describe 'Service Metrics Ctl script' do
     it 'does not template the debug flag' do
       expect(@control_script).not_to include('--debug')
     end
+
+    it 'excludes source ID' do
+      expect(@control_script).not_to include('--source-id')
+    end
   end
 
   context 'when optional properties are configured in the manifest' do
@@ -56,13 +60,14 @@ describe 'Service Metrics Ctl script' do
       properties = {
         'service_metrics' => {
           'origin' => 'some-origin',
+          'source_id' => 'some-source-id',
           'execution_interval_seconds' => 5,
           'metrics_command' => '/bin/echo',
           'metrics_command_args' => ['-n', '[{"key":"service-dummy","value":99,"unit":"metric"}]'],
           'debug' => true
         },
-        'metron_agent' => {
-          'dropsonde_incoming_port' => 1234
+        'loggregator_agent' => {
+          'ingress_port' => 1234
         }
       }
       @control_script = @template.render(properties)
@@ -81,8 +86,12 @@ describe 'Service Metrics Ctl script' do
         %Q{--metrics-cmd-arg '-n' --metrics-cmd-arg '[{"key":"service-dummy","value":99,"unit":"metric"}]'})
     end
 
-    it 'templates the configured dropsonde_incoming_port' do
-      expect(@control_script).to include('--metron-addr localhost:1234')
+    it 'templates the configured agent address' do
+      expect(@control_script).to include('--agent-addr localhost:1234')
+    end
+
+    it 'templates the source ID' do
+      expect(@control_script).to include('--source-id some-source-id')
     end
 
     it 'templates the configured debug flag' do

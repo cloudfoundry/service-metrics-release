@@ -51,6 +51,7 @@ case $1 in
       --key $job_dir/config/certs/client.key \
       --metrics-cmd <%= p("service_metrics.metrics_command") %> \
       <%= p("service_metrics.metrics_command_args").collect { |e| "--metrics-cmd-arg '#{e}'" }.join(" ") %> \
+      <%= p("service_metrics.source_id").empty? ? "" : "--source-id #{p("service_metrics.source_id")}" %> \
       --metrics-interval <%= p("service_metrics.execution_interval_seconds") %>s \
       <%= debug_string %> 2>&1 >> $metrics_log_file
 

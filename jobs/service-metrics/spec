@@ -14,7 +14,10 @@ packages:
 
 properties:
   service_metrics.origin:
-    description: "Used when initializing loggregator. Should be set to something descriptive of the deployment (e.g. service-name)"
+    description: "Used for the origin tag on every envelope. Should be set to something descriptive of the deployment (e.g. service-name)"
+  service_metrics.source_id:
+    description: "The source ID to set on every envelope sent by Service Metrics."
+    default: ""
   service_metrics.metrics_command:
     description: "Command to obtain metrics in JSON format"
     default: /var/vcap/jobs/service-metrics-adapter/bin/collect-service-metrics
@@ -40,4 +43,3 @@ properties:
   loggregator_agent.ingress_port:
     description: "Incoming port for log messages"
     default: 3458
-
