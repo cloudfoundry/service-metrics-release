@@ -22,6 +22,10 @@ module Helpers
       ENV.fetch('DEPLOYMENT_NAME')
     end
 
+    def origin
+      ENV.fetch('ORIGIN')
+    end
+
     def target_cf
       if ENV['CF_SSL_VALIDATION']
         `cf api #{cf_api}`

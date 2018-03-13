@@ -7,4 +7,5 @@ export CF_USERNAME=
 export CF_PASSWORD=
 export DOPPLER_ADDR=
 export DEPLOYMENT_NAME=
+export ORIGIN=
 export CF_SSL_VALIDATION=

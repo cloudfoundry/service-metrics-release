@@ -27,7 +27,7 @@ describe 'service metrics' do
   end
 
   it "it emits the origin" do
-    expect(@metric_entry).to match(/origin:"#{deployment_name}"/)
+    expect(@metric_entry).to match(/origin:"#{origin}"/)
   end
 
   it "it emits ip" do
@@ -52,7 +52,7 @@ describe 'service metrics' do
     60.times do
       firehose_out_file.read.lines.each do | line |
         line.force_encoding("utf-8")
-        if line =~ /origin:"#{deployment_name}".*name:"service-dummy"/
+        if line =~ /origin:"#{origin}".*name:"service-dummy"/
           metric_entry = line
           break
         end
