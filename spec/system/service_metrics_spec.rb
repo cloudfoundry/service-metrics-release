@@ -52,7 +52,7 @@ describe 'service metrics' do
     60.times do
       firehose_out_file.read.lines.each do | line |
         line.force_encoding("utf-8")
-        if line =~ /origin:"#{origin}".*deployment:"#{deployment}".*name:"service-dummy"/
+        if line =~ /origin:"#{origin}".*deployment:"#{deployment_name}".*name:"service-dummy"/
           metric_entry = line
           break
         end
