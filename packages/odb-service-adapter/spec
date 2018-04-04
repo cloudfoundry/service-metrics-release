@@ -1,0 +1,15 @@
+---
+name: odb-service-adapter
+
+dependencies: [go]
+
+files:
+  - code.cloudfoundry.org/service-adapter/*.go # gosub
+  - github.com/pivotal-cf/on-demand-services-sdk/bosh/*.go # gosub
+  - github.com/pivotal-cf/on-demand-services-sdk/serviceadapter/*.go # gosub
+  - github.com/pivotal-cf/on-demand-services-sdk/vendor/code.cloudfoundry.org/lager/*.go # gosub
+  - github.com/pivotal-cf/on-demand-services-sdk/vendor/github.com/gorilla/mux/*.go # gosub
+  - github.com/pivotal-cf/on-demand-services-sdk/vendor/github.com/pivotal-cf/brokerapi/*.go # gosub
+  - github.com/pivotal-cf/on-demand-services-sdk/vendor/github.com/pivotal-cf/brokerapi/auth/*.go # gosub
+  - github.com/pivotal-cf/on-demand-services-sdk/vendor/gopkg.in/go-playground/validator.v8/*.go # gosub
+  - github.com/pivotal-cf/on-demand-services-sdk/vendor/gopkg.in/yaml.v2/*.go # gosub
