@@ -46,3 +46,6 @@
 [submodule "src/github.com/pivotal-cf/on-demand-services-sdk"]
 	path = src/github.com/pivotal-cf/on-demand-services-sdk
 	url = https://github.com/pivotal-cf/on-demand-services-sdk
+[submodule "src/github.com/vito/gosub"]
+	path = src/github.com/vito/gosub
+	url = https://github.com/vito/gosub
