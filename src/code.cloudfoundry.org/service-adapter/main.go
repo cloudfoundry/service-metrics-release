@@ -1,8 +1,6 @@
 package main
 
 import (
-	"encoding/json"
-	"math/rand"
 	"os"
 	"strings"
 
@@ -71,8 +69,8 @@ func (m *ManifestGenerator) GenerateManifest(
 								"origin":                     "service-metrics-injector",
 								"source_id":                  sourceID,
 								"execution_interval_seconds": 5,
-								"metrics_command":            "/bin/echo",
-								"metrics_command_args":       []string{"-n", buildMetrics()},
+								"metrics_command":            "/usr/bin/python",
+								"metrics_command_args":       []string{"-c", pythonScript},
 								"monit_dependencies":         []string{},
 								"tls": map[string]interface{}{
 									"ca":   plan.Properties["service_metrics_ca"],
@@ -158,29 +156,18 @@ func (d *DashboardURLGenerator) DashboardUrl(
 	}, nil
 }
 
-func buildMetrics() string {
-	requests := rand.Int() % 1000
-	cpu := rand.Int() % 100
-	m := []map[string]interface{}{
-		map[string]interface{}{
-			"name":  "http_failures",
-			"delta": 1,
-		},
-		map[string]interface{}{
-			"name":  "http_requests",
-			"delta": requests,
-		},
-		map[string]interface{}{
-			"key":   "cpu_usage",
-			"value": cpu,
-			"unit":  "percent",
-		},
-	}
+var pythonScript = `
+import json
+import random
 
-	data, err := json.Marshal(&m)
-	if err != nil {
-		panic(err)
-	}
+http_requests = random.randint(1,1001)
+cpu_usage = random.randint(1,101)
 
-	return string(data)
-}
+metrics = [
+    {"name": "http_failures", "delta": 1},
+    {"name": "http_requests", "delta": http_requests},
+    {"key": "cpu_usage", "value": cpu_usage, "unit": "percent"}
+]
+
+print json.dumps(metrics)
+`
