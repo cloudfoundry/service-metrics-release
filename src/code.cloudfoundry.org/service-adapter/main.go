@@ -1,6 +1,8 @@
 package main
 
 import (
+	"encoding/json"
+	"math/rand"
 	"os"
 	"strings"
 
@@ -70,7 +72,7 @@ func (m *ManifestGenerator) GenerateManifest(
 								"source_id":                  sourceID,
 								"execution_interval_seconds": 5,
 								"metrics_command":            "/bin/echo",
-								"metrics_command_args":       []string{"-n", `[{"key":"service-dummy","value":99,"unit":"metric"}]`},
+								"metrics_command_args":       []string{"-n", buildMetrics()},
 								"monit_dependencies":         []string{},
 								"tls": map[string]interface{}{
 									"ca":   plan.Properties["service_metrics_ca"],
@@ -154,4 +156,31 @@ func (d *DashboardURLGenerator) DashboardUrl(
 	return serviceadapter.DashboardUrl{
 		DashboardUrl: "https://service-metrics.coconut.cf-app.com",
 	}, nil
+}
+
+func buildMetrics() string {
+	requests := rand.Int() % 1000
+	cpu := rand.Int() % 100
+	m := []map[string]interface{}{
+		map[string]interface{}{
+			"name":  "http_failures",
+			"delta": 1,
+		},
+		map[string]interface{}{
+			"name":  "http_requests",
+			"delta": requests,
+		},
+		map[string]interface{}{
+			"key":   "cpu_usage",
+			"value": cpu,
+			"unit":  "percent",
+		},
+	}
+
+	data, err := json.Marshal(&m)
+	if err != nil {
+		panic(err)
+	}
+
+	return string(data)
 }

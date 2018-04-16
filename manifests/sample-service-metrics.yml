@@ -113,7 +113,7 @@ instance_groups:
         service_catalog:
           id: ((service_catalog_id))
           service_name: ((service_catalog_service_name))
-          service_description: Sampel ODB service with service metrics
+          service_description: Sample ODB service with service metrics
           bindable: true
           plan_updatable: true
           metadata:
