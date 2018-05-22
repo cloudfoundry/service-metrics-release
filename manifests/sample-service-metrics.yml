@@ -7,9 +7,9 @@ releases:
 - name: service-metrics
   version: latest
 - name: routing
-  url: https://bosh.io/d/github.com/cloudfoundry-incubator/cf-routing-release?v=0.174.0
-  sha: 15ca395b58825a884d11f9dceeda3a3138802640
-  version: "0.174.0"
+  url: https://bosh.io/d/github.com/cloudfoundry-incubator/cf-routing-release?v=0.178.0
+  sha1: b07e1e0e2d7bd56b754d065867649f276896f783
+  version: "0.178.0"
 - name: loggregator-agent
   url: https://bosh.io/d/github.com/cloudfoundry/loggregator-agent-release?v=1.0
   sha: aa70e3bc95e25fe86ab00f3b698216a24a44c9d5
@@ -109,7 +109,7 @@ instance_groups:
               jobs: [bosh-dns]
           stemcell:
             os: ubuntu-trusty
-            version: "3541.10"
+            version: "3586.7"
         service_catalog:
           id: ((service_catalog_id))
           service_name: ((service_catalog_service_name))
