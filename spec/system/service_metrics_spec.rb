@@ -23,7 +23,7 @@ describe 'service metrics' do
   end
 
   it "it emits metrics" do
-    expect(@metric_entry).to match(/name:"cpu_usage"/)
+    expect(@metric_entry).to match(/name:"service-dummy"/)
   end
 
   it "it emits the origin" do
@@ -52,7 +52,7 @@ describe 'service metrics' do
     60.times do
       firehose_out_file.read.lines.each do | line |
         line.force_encoding("utf-8")
-        if line =~ /origin:"#{origin}".*deployment:"#{deployment_name}".*name:"cpu_usage"/
+        if line =~ /origin:"#{origin}".*deployment:"#{deployment_name}".*name:"service-dummy"/
           metric_entry = line
           break
         end
