@@ -1,0 +1,40 @@
+name: service-metrics
+version: 1.6.0
+commit_hash: f43c78a
+uncommitted_changes: false
+jobs:
+- name: odb-service-adapter
+  version: d1b93c43457c47f4d7be20eaf122b0811f03c61029df860b6c3f576db54b32fb
+  fingerprint: d1b93c43457c47f4d7be20eaf122b0811f03c61029df860b6c3f576db54b32fb
+  sha1: sha256:ab1b05a2e64cb36443636f60f998d473550bb595e89472ed0579fbbb72608670
+- name: service-metrics
+  version: 8f2b08819dd9bb4a0557a650ee59d0186719bda27ae6f369210dbf976811f7f8
+  fingerprint: 8f2b08819dd9bb4a0557a650ee59d0186719bda27ae6f369210dbf976811f7f8
+  sha1: sha256:57c3d92b364587f0c71015ccffdee777453d6a8a7a48669a06bbc447bc11becf
+packages:
+- name: go
+  version: 634e88a03b0d3672546d6cb47d8c5fc857288696461896228c0b438e5eafdd01
+  fingerprint: 634e88a03b0d3672546d6cb47d8c5fc857288696461896228c0b438e5eafdd01
+  sha1: sha256:98caa6e940b30c32fa19c98c60256cdbd706c7a4442adae51c5c9f132e996def
+  dependencies: []
+- name: odb-service-adapter
+  version: 5326310e5927c547e95dbcdc72720aa10b8d59b8bea2f3edbc201a965255bf50
+  fingerprint: 5326310e5927c547e95dbcdc72720aa10b8d59b8bea2f3edbc201a965255bf50
+  sha1: sha256:3b3692ed93664518a7954bb9cb4a5155b6a85b3391987c33b12e73fdaf3ea295
+  dependencies:
+  - go
+- name: service-metrics
+  version: d3f8f95c8e521e1bc430b1498babb969a58b71e19890d0572c5a230fd5b4ec11
+  fingerprint: d3f8f95c8e521e1bc430b1498babb969a58b71e19890d0572c5a230fd5b4ec11
+  sha1: sha256:0c4e45c1d1536a3058b846379238d889efeb3a51f8ac1156b56e1d07edc08c11
+  dependencies:
+  - go
+- name: service-metrics_utils
+  version: bc35b063835892f50a11d54f0e1518322bb82b28ceeef231714c2394bac41772
+  fingerprint: bc35b063835892f50a11d54f0e1518322bb82b28ceeef231714c2394bac41772
+  sha1: sha256:af54ad5eefe267779016995c11d02a764f73ee0192af7945a7da1c4787795bdb
+  dependencies: []
+license:
+  version: b21709eefeb1a84eba0822ce7abe1673d65e2a6249bb0ce05f04e804bb8bc933
+  fingerprint: b21709eefeb1a84eba0822ce7abe1673d65e2a6249bb0ce05f04e804bb8bc933
+  sha1: sha256:7f2a591d2f33f33cedd33e4c24418b8832325665b8ee0e3732c13448b9c0e3a4
