@@ -2,7 +2,7 @@
 name: service-metrics
 
 dependencies:
-- go
+- golang1.9.6
 
 files:
   - code.cloudfoundry.org/go-diodes/*.go # gosub
