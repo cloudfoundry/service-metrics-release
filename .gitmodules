@@ -52,3 +52,6 @@
 [submodule "src/code.cloudfoundry.org/service-metrics"]
 	path = src/code.cloudfoundry.org/service-metrics
 	url = https://github.com/cloudfoundry/service-metrics
+[submodule "src/code.cloudfoundry.org/rfc5424"]
+	path = src/code.cloudfoundry.org/rfc5424
+	url = https://github.com/cloudfoundry-incubator/rfc5424
