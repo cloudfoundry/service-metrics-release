@@ -101,9 +101,6 @@ instance_groups:
             - name: loggregator-agent
               version: "1.0"
               jobs: [loggregator_agent]
-            - name: bosh-dns
-              version: 1.6.0
-              jobs: [bosh-dns]
           stemcell:
             os: ubuntu-trusty
             version: "3586.7"
