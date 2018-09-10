@@ -103,11 +103,6 @@ func (m *ManifestGenerator) GenerateManifest(
 							},
 						},
 					},
-					{
-						Name:       "bosh-dns",
-						Release:    "bosh-dns",
-						Properties: map[string]interface{}{},
-					},
 				},
 			},
 		},

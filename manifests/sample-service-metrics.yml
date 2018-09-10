@@ -14,10 +14,6 @@ releases:
   url: https://bosh.io/d/github.com/cloudfoundry/loggregator-agent-release?v=1.0
   sha: aa70e3bc95e25fe86ab00f3b698216a24a44c9d5
   version: "1.0"
-- name: bosh-dns
-  url: https://bosh.io/d/github.com/cloudfoundry/bosh-dns-release?v=0.2.0
-  sha: 9231b7c7d2f6aa85e0cb77fdeef7add54fdb3f1a
-  version: "0.2.0"
 
 stemcells:
 - alias: trusty
@@ -105,9 +101,6 @@ instance_groups:
             - name: loggregator-agent
               version: "1.0"
               jobs: [loggregator_agent]
-            - name: bosh-dns
-              version: 0.2.0
-              jobs: [bosh-dns]
           stemcell:
             os: ubuntu-trusty
             version: "3586.7"
