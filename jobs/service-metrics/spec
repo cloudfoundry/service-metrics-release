@@ -2,14 +2,13 @@
 name: service-metrics
 
 templates:
-  service_metrics_ctl.erb: bin/service_metrics_ctl
+  bpm.yml.erb: config/bpm.yml
   drain.erb: bin/drain
   ca.crt.erb: config/certs/ca.crt
   client.crt.erb: config/certs/client.crt
   client.key.erb: config/certs/client.key
 
 packages:
-- service-metrics_utils
 - service-metrics
 
 properties:

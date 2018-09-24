@@ -6,7 +6,7 @@ describe 'Service Metrics Ctl script' do
     release_path = File.join(File.dirname(__FILE__), '../..')
     release = Bosh::Template::Test::ReleaseDir.new(release_path)
     job = release.job('service-metrics')
-    @template = job.template('bin/service_metrics_ctl')
+    @template = job.template('config/bpm.yml')
   end
 
   it 'templates the origin' do
@@ -15,8 +15,8 @@ describe 'Service Metrics Ctl script' do
         'origin' => 'some-origin'
       }
     }
-    control_script = @template.render(properties)
-    expect(control_script).to include('--origin some-origin')
+    control_script = YAML.load(@template.render(properties))
+    expect(control_script['processes'].first['args']).to include('--origin','some-origin')
   end
 
   context 'when optional properties are not configured' do
@@ -26,16 +26,18 @@ describe 'Service Metrics Ctl script' do
           'origin' => 'some-origin'
         }
       }
-      @control_script = @template.render(properties)
+      @control_script = YAML.load(@template.render(properties))['processes'].first['args']
     end
 
     it 'templates the default dropsonde_incoming_port' do
-      expect(@control_script).to include('--agent-addr localhost:3458')
+      expect(@control_script).to include('--agent-addr', 'localhost:3458')
     end
 
     it 'templates the default metrics_command' do
       expect(@control_script).to include(
-        '--metrics-cmd /var/vcap/jobs/service-metrics-adapter/bin/collect-service-metrics')
+        '--metrics-cmd',
+        '/var/vcap/jobs/service-metrics-adapter/bin/collect-service-metrics'
+      )
     end
 
     it 'does not template any metrics_command_args' do
@@ -43,7 +45,7 @@ describe 'Service Metrics Ctl script' do
     end
 
     it 'templates the default execution_interval_seconds' do
-      expect(@control_script).to include('--metrics-interval 60')
+      expect(@control_script).to include('--metrics-interval', '60s')
     end
 
     it 'does not template the debug flag' do
@@ -70,28 +72,32 @@ describe 'Service Metrics Ctl script' do
           'ingress_port' => 1234
         }
       }
-      @control_script = @template.render(properties)
+
+      @control_script = YAML.load(@template.render(properties))['processes'].first['args']
     end
 
     it 'templates the configured execution_interval_seconds' do
-      expect(@control_script).to include('--metrics-interval 5')
+      expect(@control_script).to include('--metrics-interval', '5s')
     end
 
     it 'templates the configured metrics_command' do
-      expect(@control_script).to include('--metrics-cmd /bin/echo')
+      expect(@control_script).to include('--metrics-cmd', '/bin/echo')
     end
 
     it 'templates all the configured metrics_command_args' do
       expect(@control_script).to include(
-        %Q{--metrics-cmd-arg '-n' --metrics-cmd-arg '[{"key":"service-dummy","value":99,"unit":"metric"}]'})
+        '--metrics-cmd-arg',
+        "'-n'",
+        %Q{'[{"key":"service-dummy","value":99,"unit":"metric"}]'},
+      )
     end
 
     it 'templates the configured agent address' do
-      expect(@control_script).to include('--agent-addr localhost:1234')
+      expect(@control_script).to include('--agent-addr', 'localhost:1234')
     end
 
     it 'templates the source ID' do
-      expect(@control_script).to include('--source-id some-source-id')
+      expect(@control_script).to include('--source-id', 'some-source-id')
     end
 
     it 'templates the configured debug flag' do

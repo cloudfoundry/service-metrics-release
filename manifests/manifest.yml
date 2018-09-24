@@ -11,19 +11,17 @@ releases:
   version: latest
 - name: loggregator
   version: latest
-- name: bosh-dns
-  version: 0.2.0
-  url: https://bosh.io/d/github.com/cloudfoundry/bosh-dns-release?v=0.2.0
-  sha: 9231b7c7d2f6aa85e0cb77fdeef7add54fdb3f1a
+- name: bpm
+  version: latest
 
 addons:
-- name: bosh-dns
+- name: bpm
   include:
     stemcell:
     - os: ubuntu-trusty
   jobs:
-  - name: bosh-dns
-    release: bosh-dns
+  - name: bpm
+    release: bpm
 
 instance_groups:
 - name: service-metrics

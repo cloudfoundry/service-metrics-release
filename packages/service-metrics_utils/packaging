@@ -1,3 +1,0 @@
-set -e
-
-cp -a utils/lib/* ${BOSH_INSTALL_TARGET}

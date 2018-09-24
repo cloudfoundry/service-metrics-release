@@ -1,5 +1,0 @@
----
-name: service-metrics_utils
-files:
-- utils/lib/pid_utils.sh
-- utils/lib/log.sh
