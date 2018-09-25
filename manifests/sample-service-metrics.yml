@@ -101,6 +101,8 @@ instance_groups:
             - name: loggregator-agent
               version: "1.0"
               jobs: [loggregator_agent]
+            - name: bpm
+              version: 0.12.3
           stemcell:
             os: ubuntu-trusty
             version: "3586.7"

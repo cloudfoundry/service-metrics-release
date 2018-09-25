@@ -103,6 +103,10 @@ func (m *ManifestGenerator) GenerateManifest(
 							},
 						},
 					},
+					{
+						Name:    "bpm",
+						Release: "bpm",
+					},
 				},
 			},
 		},
