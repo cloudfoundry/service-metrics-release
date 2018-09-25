@@ -87,8 +87,8 @@ describe 'Service Metrics Ctl script' do
     it 'templates all the configured metrics_command_args' do
       expect(@control_script).to include(
         '--metrics-cmd-arg',
-        "'-n'",
-        %Q{'[{"key":"service-dummy","value":99,"unit":"metric"}]'},
+        "-n",
+        %Q{[{"key":"service-dummy","value":99,"unit":"metric"}]},
       )
     end
 
