@@ -51,7 +51,7 @@ instance_groups:
           key: ((service-metrics.private_key))
           ca: ((service-metrics.ca))
 
-  - name: loggregator
+  - name: loggregator_agent
     release: loggregator-agent
     consumes:
       doppler: {from: doppler, deployment: loggregator}
