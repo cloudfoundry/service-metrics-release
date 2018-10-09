@@ -18,6 +18,15 @@ p("service_metrics.metrics_command_args").each do |e|
     args << e
 end
 
+volumes = []
+p("service_metrics.mount_paths").each do |e|
+    volumes << {
+        'path' => e,
+        'allow_executions' => true,
+        'mount_only' => true,
+    }
+end
+
 if !p("service_metrics.source_id").empty?
     args << '--source-id'
     args << p("service_metrics.source_id")
@@ -32,7 +41,10 @@ bpm_def = {
         'name' => 'service-metrics',
         'executable' => '/var/vcap/packages/service-metrics/bin/service-metrics',
         'args' => args,
-    }]
+        'unsafe' => {
+            'unrestricted_volumes' => volumes,
+        },
+    }],
 }
 
 bpm_def.to_yaml
