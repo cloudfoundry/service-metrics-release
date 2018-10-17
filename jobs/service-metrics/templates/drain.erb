@@ -5,6 +5,15 @@ set -eu
 run_dir=/var/vcap/sys/run/service-metrics
 log_dir=/var/vcap/sys/log/service-metrics
 
+log() {
+  if [ -z "$LOG_FILE" ]; then
+    echo "$LOG_FILE environment variable needs to be set for logging"
+    return 1
+  fi
+  echo "$(date): $*" >> ${LOG_FILE}
+  return 0
+}
+
 ensure_dir() {
   local dir=$1
   mkdir -p "${dir}"
@@ -16,9 +25,6 @@ ensure_dir $log_dir
 ensure_dir $run_dir
 
 pidfile=$run_dir/service-metrics.pid
-
-utils_dir=/var/vcap/packages/service-metrics_utils
-source $utils_dir/log.sh
 
 log_facility=user
 script_log_tag=service-metrics-drain
