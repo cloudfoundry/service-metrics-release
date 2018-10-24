@@ -2,7 +2,7 @@
 name: service-metrics-injector
 
 stemcells:
-- alias: trusty
+- alias: xenial
   os: ubuntu-xenial
   version: latest
 
@@ -20,7 +20,7 @@ addons:
 - name: bpm
   include:
     stemcell:
-    - os: ubuntu-trusty
+    - os: ubuntu-xenial
   jobs:
   - name: bpm
     release: bpm
@@ -28,7 +28,7 @@ addons:
 instance_groups:
 - name: service-metrics
   instances: 1
-  stemcell: trusty
+  stemcell: xenial
   vm_type: minimal
   networks:
   - name: default
