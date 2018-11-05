@@ -35,16 +35,17 @@ instance_groups:
   azs:
   - z1
   jobs:
+  - name: service-metrics-test-script
+    release: service-metrics
   - name: service-metrics
     release: service-metrics
     properties:
       service_metrics:
+        mount_paths:
+        - /var/vcap/packages/service-metrics-test-script
         origin: service-metrics-injector
         execution_interval_seconds: 5
-        metrics_command: /bin/echo
-        metrics_command_args:
-        - -n
-        - '[{"key":"service-dummy","value":99,"unit":"metric"}]'
+        metrics_command: /var/vcap/packages/service-metrics-test-script/service-dummy.sh
         monit_dependencies: []
         tls:
           cert: ((service-metrics.certificate))

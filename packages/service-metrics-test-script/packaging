@@ -1,0 +1,9 @@
+set -e
+
+cat <<EOF > "$BOSH_INSTALL_TARGET/service-dummy.sh"
+#!/usr/bin/env bash
+/bin/echo -n '[{"key":"service-dummy","value":99,"unit":"metric"}]'
+EOF
+
+chmod +x "$BOSH_INSTALL_TARGET/service-dummy.sh"
+

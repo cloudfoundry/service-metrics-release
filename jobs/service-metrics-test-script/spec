@@ -1,0 +1,9 @@
+---
+name: service-metrics-test-script
+
+templates: {}
+
+packages:
+- service-metrics-test-script
+
+properties: {}
