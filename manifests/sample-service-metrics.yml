@@ -16,15 +16,15 @@ releases:
   version: "1.0"
 
 stemcells:
-- alias: trusty
-  os: ubuntu-trusty
+- alias: xenial
+  os: ubuntu-xenial
   version: latest
 
 instance_groups:
 - name: broker
   instances: 1
   vm_type: minimal
-  stemcell: trusty
+  stemcell: xenial
   networks: [{name: default}]
   vm_extensions: [access-director]
   azs: [z1]
@@ -105,8 +105,8 @@ instance_groups:
               jobs: [bpm]
               version: 0.12.3
           stemcell:
-            os: ubuntu-trusty
-            version: "3586.7"
+            os: ubuntu-xenial
+            version: "170.12"
         service_catalog:
           id: ((service_catalog_id))
           service_name: ((service_catalog_service_name))
