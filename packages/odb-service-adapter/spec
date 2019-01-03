@@ -2,7 +2,7 @@
 name: odb-service-adapter
 
 dependencies:
-- golang1.11.2
+- golang1.11.4
 
 files:
   - code.cloudfoundry.org/service-adapter/*.go # gosub
