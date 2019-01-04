@@ -27,7 +27,10 @@ properties:
     description: "Filesystem paths to be mounted for reading by the metrics_command"
     default: []
   service_metrics.execution_interval_seconds:
-    description: "Interval to repeatedly obtain and emit metrics, in seconds"
+    description: |
+      Interval to repeatedly obtain and emit metrics, in seconds. If the
+      interval seconds is set to a negative number this will disable service
+      metrics process.
     default: 60
   service_metrics.debug:
     description: "boolean value to turn on verbose mode"
