@@ -1,8 +1,10 @@
-<% p("service_metrics.monit_dependencies").length > 0 ? deps = "depends on #{p("service_metrics.monit_dependencies").join(', ')}" : deps = "" %>
-check process service-metrics
-  with pidfile /var/vcap/sys/run/bpm/service-metrics/service-metrics.pid
-  start program "/var/vcap/jobs/bpm/bin/bpm start service-metrics"
-  stop program "/var/vcap/jobs/bpm/bin/bpm stop service-metrics"
-  group vcap
-  <%= deps %>
+<% if p("service_metrics.execution_interval_seconds").to_i >= 0 %>
+  <% p("service_metrics.monit_dependencies").length > 0 ? deps = "depends on #{p("service_metrics.monit_dependencies").join(', ')}" : deps = "" %>
+  check process service-metrics
+    with pidfile /var/vcap/sys/run/bpm/service-metrics/service-metrics.pid
+    start program "/var/vcap/jobs/bpm/bin/bpm start service-metrics"
+    stop program "/var/vcap/jobs/bpm/bin/bpm stop service-metrics"
+    group vcap
+    <%= deps %>
+<% end %>
 
