@@ -14,3 +14,11 @@ export HOME=/var/vcap
 go install code.cloudfoundry.org/service-metrics
 
 rm -rf ${BOSH_INSTALL_TARGET}/src ${BOSH_INSTALL_TARGET}/pkg
+
+cat <<'EOT' > ${BOSH_INSTALL_TARGET}/bin/service-metrics.sh
+#!/usr/bin/env bash
+
+/var/vcap/packages/service-metrics/bin/service-metrics $@
+EOT
+
+chmod +x ${BOSH_INSTALL_TARGET}/bin/service-metrics.sh
