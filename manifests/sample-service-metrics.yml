@@ -33,6 +33,8 @@ instance_groups:
   vm_extensions: [access-director]
   azs: [z1]
   jobs:
+  - name: bpm
+    release: bpm
   - name: odb-service-adapter
     release: service-metrics
   - name: register-broker
