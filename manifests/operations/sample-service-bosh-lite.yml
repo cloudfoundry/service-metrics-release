@@ -1,8 +1,0 @@
-- type: remove
-  path: /instance_groups/name=broker/vm_extensions
-- type: replace
-  path: /instance_groups/name=broker/jobs/name=broker/properties/bosh/authentication
-  value:
-    basic:
-      username: ((bosh.authentication.username))
-      password: ((bosh.authentication.password))
