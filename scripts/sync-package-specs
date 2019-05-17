@@ -32,7 +32,6 @@ pushd $(dirname $0)/..
   }
 
   sync_package service-metrics     -app code.cloudfoundry.org/service-metrics
-  sync_package odb-service-adapter -app code.cloudfoundry.org/service-adapter
 
   wait
 popd
