@@ -1,24 +1,16 @@
 #!/usr/bin/env bash
-
-set -eu
-
-mkdir -p ${BOSH_INSTALL_TARGET}/src
-cp -a . ${BOSH_INSTALL_TARGET}/src
-
-export GOPATH=$BOSH_INSTALL_TARGET
+set -ex
 
 export GOROOT=$(readlink -nf /var/vcap/packages/golang1.12.4)
 export PATH=$GOROOT/bin:$PATH
 export HOME=/var/vcap
 
-go install code.cloudfoundry.org/service-metrics
+go build -mod=vendor -o ${BOSH_INSTALL_TARGET}/bin/service-metrics
 
-rm -rf ${BOSH_INSTALL_TARGET}/src ${BOSH_INSTALL_TARGET}/pkg
-
-cat <<'EOT' > ${BOSH_INSTALL_TARGET}/bin/service-metrics.sh
+cat <<EOT > ${BOSH_INSTALL_TARGET}/bin/service-metrics.sh
 #!/usr/bin/env bash
 
-/var/vcap/packages/service-metrics/bin/service-metrics $@
+${BOSH_INSTALL_TARGET}/bin/service-metrics \$@
 EOT
 
 chmod +x ${BOSH_INSTALL_TARGET}/bin/service-metrics.sh
