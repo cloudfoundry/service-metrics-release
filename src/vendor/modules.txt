@@ -59,7 +59,7 @@ github.com/onsi/gomega/matchers/support/goraph/node
 github.com/onsi/gomega/matchers/support/goraph/util
 # github.com/st3v/glager v0.3.0
 github.com/st3v/glager
-# golang.org/x/net v0.0.0-20190628185345-da137c7871d7
+# golang.org/x/net v0.0.0-20190724013045-ca1201d0de80
 golang.org/x/net/context
 golang.org/x/net/trace
 golang.org/x/net/internal/timeseries
