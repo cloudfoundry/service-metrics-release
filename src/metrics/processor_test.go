@@ -1,11 +1,11 @@
 package metrics_test
 
 import (
+	"code.cloudfoundry.org/go-loggregator/metrics/testhelpers"
+	"code.cloudfoundry.org/service-metrics/metrics"
 	"fmt"
 	"os/exec"
 	"strings"
-
-	"code.cloudfoundry.org/service-metrics/metrics"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -13,26 +13,25 @@ import (
 
 var _ = Describe("Processor", func() {
 	It("sends gauge metrics to the egress client", func() {
-		spyIngressClient := newSpyIngressClient()
 		spyExecutor := newSpyExecutor([]byte(`[
 			{"key": "my-key", "value": 21.4, "unit": "things"},
 			{"key": "my-other-key", "value": 39.9, "unit": "other-things"}
 		]`), nil)
 
+		m := testhelpers.NewMetricsRegistry()
 		p := metrics.NewProcessor(
 			&spyLogger{},
-			metrics.NewEgressClient(spyIngressClient, "source-id"),
+			m,
 			spyExecutor,
 		)
 
 		p.Process("/bin/echo", "my", "command")
 
 		Expect(spyExecutor.cmd.Args).To(Equal([]string{"/bin/echo", "my", "command"}))
-		Expect(spyIngressClient.gaugeEnvs).To(HaveLen(1))
 
-		ms := spyIngressClient.gaugeEnvs[0].GetGauge().GetMetrics()
-		Expect(ms["my-key"].GetValue()).To(Equal(21.4))
-		Expect(ms["my-key"].GetUnit()).To(Equal("things"))
+		Eventually(func() float64 {
+			return m.GetMetricValue("my-key", map[string]string{"unit": "things"})
+		}).Should(Equal(21.4))
 	})
 
 	It("doesn't emit gauges when the output isn't a gauge", func() {
@@ -46,84 +45,106 @@ var _ = Describe("Processor", func() {
 		}
 		out := fmt.Sprintf("[%s]", strings.Join(invalidMetrics, ","))
 
-		spyIngressClient := newSpyIngressClient()
 		spyExecutor := newSpyExecutor([]byte(out), nil)
 
+		m := testhelpers.NewMetricsRegistry()
 		p := metrics.NewProcessor(
 			&spyLogger{},
-			metrics.NewEgressClient(spyIngressClient, "source-id"),
+			m,
 			spyExecutor,
 		)
 
 		p.Process("/bin/echo", "my", "command")
+		Expect(spyExecutor.cmd.Args).To(Equal([]string{"/bin/echo", "my", "command"}))
 
-		Expect(spyIngressClient.emitGaugeCalled).To(BeFalse())
+		Expect(m.Metrics).To(HaveLen(0))
 	})
 
 	It("sends counter metrics to the egress client", func() {
-		spyIngressClient := newSpyIngressClient()
 		spyExecutor := newSpyExecutor([]byte(`[
 			{"name": "my-name", "delta": 1},
 			{"name": "my-other-name", "delta": 14}
 		]`), nil)
 
+		m := testhelpers.NewMetricsRegistry()
 		p := metrics.NewProcessor(
 			&spyLogger{},
-			metrics.NewEgressClient(spyIngressClient, "source-id"),
+			m,
 			spyExecutor,
 		)
 
 		p.Process("/bin/echo", "my", "command")
 
-		Expect(spyIngressClient.counterEnvs).To(HaveLen(2))
-
-		env0 := spyIngressClient.counterEnvs[0]
-		Expect(env0.GetCounter().GetName()).To(Equal("my-name"))
-		Expect(env0.GetCounter().GetDelta()).To(Equal(uint64(1)))
-
-		env1 := spyIngressClient.counterEnvs[1]
-		Expect(env1.GetCounter().GetName()).To(Equal("my-other-name"))
-		Expect(env1.GetCounter().GetDelta()).To(Equal(uint64(14)))
+		Expect(m.GetMetricValue("my-name", nil)).To(Equal(1.0))
+		Expect(m.GetMetricValue("my-other-name", nil)).To(Equal(14.0))
 	})
 
 	It("doesn't emit counters when the output isn't a counter", func() {
 		invalidMetrics := []string{
-			`{"not-name": "my-name", "delta": 1}`,    // Inalid name name
+			`{"not-name": "my-name", "delta": 1}`,    // Invalid name name
 			`{"name": "my-name", "not-delta": 1}`,    // Invalid delta name
 			`{"name": 0, "delta": 1}`,                // Invalid name value
 			`{"name": "my-name", "delta": "number"}`, // Invalid delta value
 		}
 		out := fmt.Sprintf("[%s]", strings.Join(invalidMetrics, ","))
 
-		spyIngressClient := newSpyIngressClient()
 		spyExecutor := newSpyExecutor([]byte(out), nil)
 
+		m := testhelpers.NewMetricsRegistry()
 		p := metrics.NewProcessor(
 			&spyLogger{},
-			metrics.NewEgressClient(spyIngressClient, "source-id"),
+			m,
 			spyExecutor,
 		)
 
 		p.Process("/bin/echo", "my", "command")
+		Expect(spyExecutor.cmd.Args).To(Equal([]string{"/bin/echo", "my", "command"}))
 
-		Expect(spyIngressClient.counterEnvs).To(HaveLen(0))
+		Expect(m.Metrics).To(HaveLen(0))
 	})
 
 	It("ignores counters with negative values", func() {
-		spyIngressClient := newSpyIngressClient()
 		spyExecutor := newSpyExecutor([]byte(`[
 			{"name": "my-name", "delta": -1}
 		]`), nil)
 
+		m := testhelpers.NewMetricsRegistry()
 		p := metrics.NewProcessor(
 			&spyLogger{},
-			metrics.NewEgressClient(spyIngressClient, "source-id"),
+			m,
+			spyExecutor,
+		)
+
+		p.Process("/bin/echo", "my", "command")
+		Expect(spyExecutor.cmd.Args).To(Equal([]string{"/bin/echo", "my", "command"}))
+
+		Expect(m.Metrics).To(HaveLen(0))
+	})
+
+	It("converts names with invalid characters", func() {
+		spyExecutor := newSpyExecutor([]byte(`[
+			{"key": "gauge.wrong.name", "value": 21.4, "unit": "things"},
+			{"name": "counter/also-wrong", "delta": 1}
+		]`), nil)
+
+		m := testhelpers.NewMetricsRegistry()
+		p := metrics.NewProcessor(
+			&spyLogger{},
+			m,
 			spyExecutor,
 		)
 
 		p.Process("/bin/echo", "my", "command")
 
-		Expect(spyIngressClient.emitCounterCalled).To(BeFalse())
+		Expect(spyExecutor.cmd.Args).To(Equal([]string{"/bin/echo", "my", "command"}))
+
+		Eventually(func() float64 {
+			return m.GetMetricValue("gauge_wrong_name", map[string]string{"unit": "things"})
+		}).Should(Equal(21.4))
+
+		Eventually(func() float64 {
+			return m.GetMetricValue("counter_also_wrong", nil)
+		}).Should(Equal(1.0))
 	})
 })
 

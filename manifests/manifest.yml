@@ -51,15 +51,20 @@ instance_groups:
         execution_interval_seconds: 5
         metrics_command: /var/vcap/packages/service-metrics-test-script/service-dummy.sh
         monit_dependencies: []
-        tls:
-          cert: ((service-metrics.certificate))
-          key: ((service-metrics.private_key))
-          ca: ((service-metrics.ca))
 
+  - name: prom_scraper
+    release: loggregator-agent
+    properties:
+      loggregator_agent:
+        tls:
+          cert: ((loggregator_agent.certificate))
+          key: ((loggregator_agent.private_key))
+          ca_cert: ((loggregator_agent.ca))
+        grpc_port: 3458
   - name: loggregator_agent
     release: loggregator-agent
     consumes:
-      doppler: {from: doppler, deployment: loggregator}
+      doppler: {from: doppler, deployment: cf}
     properties:
       disable_udp: true
       loggregator:
@@ -68,7 +73,6 @@ instance_groups:
             cert: ((loggregator_agent.certificate))
             key: ((loggregator_agent.private_key))
           ca_cert: ((loggregator_agent.ca))
-
 
 variables:
 - name: loggregator_ca

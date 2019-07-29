@@ -1,14 +1,8 @@
 <%=
 require 'yaml'
 
-job_dir='/var/vcap/jobs/service-metrics'
-
 args = [
     '--origin', p('service_metrics.origin'),
-    '--agent-addr', "localhost:#{p('loggregator_agent.ingress_port')}",
-    '--ca', "#{job_dir}/config/certs/ca.crt",
-    '--cert', "#{job_dir}/config/certs/client.crt",
-    '--key', "#{job_dir}/config/certs/client.key",
     '--metrics-cmd', p("service_metrics.metrics_command"),
     '--metrics-interval', "#{p('service_metrics.execution_interval_seconds')}s",
 ]
@@ -36,11 +30,16 @@ if p("service_metrics.debug")
     args << '--debug'
 end
 
+env = {
+  "PORT" => p('service_metrics.port')
+}
+
 bpm_def = {
     'processes' => [{
         'name' => 'service-metrics',
         'executable' => '/var/vcap/packages/service-metrics/bin/service-metrics.sh',
         'args' => args,
+        'env' => env,
         'unsafe' => {
             'unrestricted_volumes' => volumes,
         },
@@ -49,4 +48,3 @@ bpm_def = {
 
 bpm_def.to_yaml
 %>
-

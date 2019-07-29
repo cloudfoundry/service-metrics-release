@@ -4,9 +4,7 @@ name: service-metrics
 templates:
   bpm.yml.erb: config/bpm.yml
   drain.erb: bin/drain
-  ca.crt.erb: config/certs/ca.crt
-  client.crt.erb: config/certs/client.crt
-  client.key.erb: config/certs/client.key
+  prom_scraper_config.yml.erb: config/prom_scraper_config.yml
 
 packages:
 - service-metrics
@@ -38,13 +36,6 @@ properties:
   service_metrics.monit_dependencies:
     description: "Array of monit service dependencies"
     default: []
-  service_metrics.tls.ca:
-    description: "Loggregator CA certificate file"
-  service_metrics.tls.cert:
-    description: "Service metrics client certificate"
-  service_metrics.tls.key:
-    description: "Service metrics client private key"
-
-  loggregator_agent.ingress_port:
-    description: "Incoming port for log messages"
-    default: 3458
+  service_metrics.port:
+    description: "The port service metrics will expose parsed metrics on"
+    default: 14828
