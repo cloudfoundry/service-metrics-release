@@ -30,7 +30,7 @@ var _ = Describe("Processor", func() {
 		Expect(spyExecutor.cmd.Args).To(Equal([]string{"/bin/echo", "my", "command"}))
 
 		Eventually(func() float64 {
-			return m.GetMetricValue("my-key", map[string]string{"unit": "things"})
+			return m.GetMetricValue("my_key", map[string]string{"unit": "things"})
 		}).Should(Equal(21.4))
 	})
 
@@ -75,8 +75,8 @@ var _ = Describe("Processor", func() {
 
 		p.Process("/bin/echo", "my", "command")
 
-		Expect(m.GetMetricValue("my-name", nil)).To(Equal(1.0))
-		Expect(m.GetMetricValue("my-other-name", nil)).To(Equal(14.0))
+		Expect(m.GetMetricValue("my_name", nil)).To(Equal(1.0))
+		Expect(m.GetMetricValue("my_other_name", nil)).To(Equal(14.0))
 	})
 
 	It("doesn't emit counters when the output isn't a counter", func() {
