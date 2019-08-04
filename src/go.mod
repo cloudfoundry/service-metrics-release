@@ -9,5 +9,5 @@ require (
 	github.com/cloudfoundry/go-envstruct v1.4.0
 	github.com/onsi/ginkgo v1.8.0
 	github.com/onsi/gomega v1.5.0
-	golang.org/x/sys v0.0.0-20190801041406-cbf593c0f2f3 // indirect
+	golang.org/x/sys v0.0.0-20190804053845-51ab0e2deafa // indirect
 )
