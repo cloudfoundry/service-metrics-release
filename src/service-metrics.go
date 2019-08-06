@@ -15,7 +15,6 @@ import (
 
 type config struct {
 	Origin          string        `env:"ORIGIN"`
-	SourceID        string        `env:"SOURCE_ID"`
 	MetricsInterval time.Duration `env:"METRICS_INTERVAL"`
 	MetricsCmd      string        `env:"METRICS_CMD"`
 	MetricsCmdArgs  multiFlag     `env:"METRICS_CMD_ARG"`
@@ -40,8 +39,7 @@ func main() {
 	m := egress.NewRegistry(log.New(os.Stdout, "", 0),
 		egress.WithDefaultTags(
 			map[string]string{
-				"origin":    cfg.Origin,
-				"source_id": cfg.SourceID,
+				"origin": cfg.Origin,
 			},
 		),
 		egress.WithServer(cfg.Port),
@@ -70,7 +68,6 @@ func parseConfig() {
 
 	flag.StringVar(&cfg.Origin, "origin", "", "Required. Source name for metrics emitted by this process, e.g. service-name")
 	flag.StringVar(&cfg.MetricsCmd, "metrics-cmd", "", "Required. Path to metrics command")
-	flag.StringVar(&cfg.SourceID, "source-id", "", "Source ID to be applied to all envelopes.")
 	flag.Var(&cfg.MetricsCmdArgs, "metrics-cmd-arg", "Argument to pass on to metrics-cmd (multi-valued)")
 	flag.DurationVar(&cfg.MetricsInterval, "metrics-interval", 0, "Interval to run metrics-cmd")
 	flag.BoolVar(&cfg.Debug, "debug", false, "Output debug logging")
@@ -84,10 +81,6 @@ func parseConfig() {
 		cfg.MetricsCmd = env.MetricsCmd
 	}
 
-	if cfg.SourceID == "" {
-		cfg.SourceID = env.SourceID
-	}
-
 	if len(cfg.MetricsCmdArgs) == 0 {
 		cfg.MetricsCmdArgs = env.MetricsCmdArgs
 	}
@@ -98,10 +91,6 @@ func parseConfig() {
 
 	if cfg.Debug {
 		cfg.Debug = env.Debug
-	}
-
-	if cfg.SourceID == "" {
-		cfg.SourceID = cfg.Origin
 	}
 
 	cfg.Port = env.Port

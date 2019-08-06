@@ -21,11 +21,6 @@ p("service_metrics.mount_paths").each do |e|
     }
 end
 
-if !p("service_metrics.source_id").empty?
-    args << '--source-id'
-    args << p("service_metrics.source_id")
-end
-
 if p("service_metrics.debug")
     args << '--debug'
 end

@@ -1,4 +1,14 @@
+<%
+  source_id = spec.name
+
+  if_p('service_metrics.source_id')  { |service_metrics_source_id|
+    source_id = service_metrics_source_id
+  }.else_if_p('service_metrics.origin') { |origin|
+    source_id = origin
+  }
+%>
+
 ---
-port: <%= p("service_metrics.port") %>
-source_id: <%= spec.job.name %>
+port: <%= p('service_metrics.port') %>
+source_id: <%= source_id %>
 instance_id: <%= spec.id || spec.index.to_s %>
