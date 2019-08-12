@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"code.cloudfoundry.org/lager"
-	"github.com/cloudfoundry/go-envstruct"
+	"code.cloudfoundry.org/go-envstruct"
 )
 
 type config struct {
