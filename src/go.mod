@@ -3,7 +3,7 @@ module code.cloudfoundry.org/service-metrics
 go 1.12
 
 require (
-	code.cloudfoundry.org/go-envstruct v1.5.0 // pinned
+	code.cloudfoundry.org/go-envstruct v1.5.0
 	code.cloudfoundry.org/go-loggregator v7.7.0+incompatible // pinned
 	code.cloudfoundry.org/lager v2.0.0+incompatible
 	github.com/onsi/ginkgo v1.8.0
