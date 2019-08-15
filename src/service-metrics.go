@@ -9,17 +9,20 @@ import (
 	"os"
 	"time"
 
-	"code.cloudfoundry.org/lager"
 	"code.cloudfoundry.org/go-envstruct"
+	"code.cloudfoundry.org/lager"
 )
 
 type config struct {
-	Origin          string        `env:"ORIGIN"`
-	MetricsInterval time.Duration `env:"METRICS_INTERVAL"`
-	MetricsCmd      string        `env:"METRICS_CMD"`
+	Origin          string        `env:"ORIGIN, report"`
+	MetricsInterval time.Duration `env:"METRICS_INTERVAL, report"`
+	MetricsCmd      string        `env:"METRICS_CMD, report"`
 	MetricsCmdArgs  multiFlag     `env:"METRICS_CMD_ARG"`
-	Debug           bool          `env:"DEBUG"`
-	Port            int           `env:"PORT"`
+	Debug           bool          `env:"DEBUG, report"`
+	Port            int           `env:"PORT, report"`
+	CAFile          string        `env:"CA_FILE_PATH, report"`
+	CertFile        string        `env:"CERT_FILE_PATH, report"`
+	KeyFile         string        `env:"KEY_FILE_PATH, report"`
 }
 
 var cfg config
@@ -42,7 +45,12 @@ func main() {
 				"origin": cfg.Origin,
 			},
 		),
-		egress.WithServer(cfg.Port),
+		egress.WithTLSServer(
+			cfg.Port,
+			cfg.CertFile,
+			cfg.KeyFile,
+			cfg.CAFile,
+		),
 	)
 
 	processor := metrics.NewProcessor(
@@ -61,42 +69,27 @@ func main() {
 }
 
 func parseConfig() {
-	env := &config{
+	cfg = config{
 		MetricsInterval: time.Minute,
 	}
-	envstruct.Load(env)
+	envstruct.Load(&cfg)
 
-	flag.StringVar(&cfg.Origin, "origin", "", "Required. Source name for metrics emitted by this process, e.g. service-name")
-	flag.StringVar(&cfg.MetricsCmd, "metrics-cmd", "", "Required. Path to metrics command")
+	cmdArgsFromEnv := cfg.MetricsCmdArgs
+	flag.StringVar(&cfg.Origin, "origin", cfg.Origin, "Required. Source name for metrics emitted by this process, e.g. service-name")
+	flag.StringVar(&cfg.MetricsCmd, "metrics-cmd", cfg.MetricsCmd, "Required. Path to metrics command")
 	flag.Var(&cfg.MetricsCmdArgs, "metrics-cmd-arg", "Argument to pass on to metrics-cmd (multi-valued)")
-	flag.DurationVar(&cfg.MetricsInterval, "metrics-interval", 0, "Interval to run metrics-cmd")
-	flag.BoolVar(&cfg.Debug, "debug", false, "Output debug logging")
+	flag.DurationVar(&cfg.MetricsInterval, "metrics-interval", cfg.MetricsInterval, "Interval to run metrics-cmd")
+	flag.BoolVar(&cfg.Debug, "debug", cfg.Debug, "Output debug logging")
 	flag.Parse()
 
-	if cfg.Origin == "" {
-		cfg.Origin = env.Origin
-	}
-
-	if cfg.MetricsCmd == "" {
-		cfg.MetricsCmd = env.MetricsCmd
-	}
-
 	if len(cfg.MetricsCmdArgs) == 0 {
-		cfg.MetricsCmdArgs = env.MetricsCmdArgs
+		cfg.MetricsCmdArgs = cmdArgsFromEnv
 	}
-
-	if cfg.MetricsInterval == 0 {
-		cfg.MetricsInterval = env.MetricsInterval
-	}
-
-	if cfg.Debug {
-		cfg.Debug = env.Debug
-	}
-
-	cfg.Port = env.Port
 
 	assertFlag("origin", cfg.Origin)
 	assertFlag("metrics-cmd", cfg.MetricsCmd)
+
+	envstruct.WriteReport(&cfg)
 }
 
 type multiFlag []string

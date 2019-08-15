@@ -25,8 +25,12 @@ if p("service_metrics.debug")
     args << '--debug'
 end
 
+certs_dir="/var/vcap/jobs/service-metrics/config/certs"
 env = {
-  "PORT" => p('service_metrics.port')
+  "PORT" => p('service_metrics.port'),
+  "CA_FILE_PATH" => "#{certs_dir}/service_metrics_ca.crt",
+  "CERT_FILE_PATH"=> "#{certs_dir}/service_metrics.crt",
+  "KEY_FILE_PATH"=> "#{certs_dir}/service_metrics.key",
 }
 
 bpm_def = {

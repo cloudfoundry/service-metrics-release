@@ -45,6 +45,11 @@ instance_groups:
     release: service-metrics
     properties:
       service_metrics:
+        tls:
+          cert: ((service-metrics-metrics.certificate))
+          key: ((service-metrics-metrics.private_key))
+          ca_cert: ((service-metrics-metrics.ca))
+          server_name: service-metrics-metrics
         mount_paths:
         - /var/vcap/packages/service-metrics-test-script
         origin: service-metrics-injector
@@ -61,6 +66,12 @@ instance_groups:
           key: ((loggregator_agent.private_key))
           ca_cert: ((loggregator_agent.ca))
         grpc_port: 3458
+      scrape:
+        tls:
+          cert: ((prom-scraper-tls.certificate))
+          key: ((prom-scraper-tls.private_key))
+          ca_cert: ((prom-scraper-tls.ca))
+          cn: "service-metrics-metrics"
   - name: loggregator_agent
     release: loggregator-agent
     consumes:
@@ -73,6 +84,11 @@ instance_groups:
             cert: ((loggregator_agent.certificate))
             key: ((loggregator_agent.private_key))
           ca_cert: ((loggregator_agent.ca))
+      metrics:
+        cert: ((loggregator-agent-metrics.certificate))
+        key: ((loggregator-agent-metrics.private_key))
+        ca_cert: ((loggregator-agent-metrics.ca))
+        server_name: loggregator-agent-metrics
 
 variables:
 - name: loggregator_ca
@@ -87,6 +103,32 @@ variables:
     common_name: service-metrics
     extended_key_usage:
     - client_auth
+- name: metric_scraper_ca
+  type: certificate
+  options:
+    is_ca: true
+    common_name: metricScraperCA
+- name: service-metrics-metrics
+  type: certificate
+  options:
+    ca: metric_scraper_ca
+    common_name: service-metrics-metrics
+    extended_key_usage:
+    - server_auth
+- name: prom-scraper-tls
+  type: certificate
+  options:
+    ca: metric_scraper_ca
+    common_name: prom-scraper-tls
+    extended_key_usage:
+    - client_auth
+- name: loggregator-agent-metrics
+  type: certificate
+  options:
+    ca: metric_scraper_ca
+    common_name: loggregator-agent-metrics
+    extended_key_usage:
+    - server_auth
 - name: loggregator_agent
   type: certificate
   options:
