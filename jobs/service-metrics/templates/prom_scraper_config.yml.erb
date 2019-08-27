@@ -13,4 +13,4 @@ port: <%= p('service_metrics.port') %>
 source_id: <%= source_id %>
 instance_id: <%= spec.id || spec.index.to_s %>
 scheme: https
-server_name: <%= p('metrics.server_name') %>
+server_name: <%= p('service_metrics.tls.server_name') %>
