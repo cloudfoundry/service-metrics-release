@@ -73,9 +73,9 @@ instance_groups:
           ca_cert: ((prom-scraper-tls.ca))
           cn: "service-metrics-metrics"
       metrics:
-        ca_cert: ((prom_scraper_metrics_tls.ca))
-        cert: ((prom_scraper_metrics_tls.certificate))
-        key: ((prom_scraper_metrics_tls.private_key))
+        ca_cert: ((prom-scraper-metrics.ca))
+        cert: ((prom-scraper-metrics.certificate))
+        key: ((prom-scraper-metrics.private_key))
         server_name: prom_scraper_metrics
   - name: loggregator_agent
     release: loggregator-agent
