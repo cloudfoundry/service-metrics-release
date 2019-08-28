@@ -72,6 +72,11 @@ instance_groups:
           key: ((prom-scraper-tls.private_key))
           ca_cert: ((prom-scraper-tls.ca))
           cn: "service-metrics-metrics"
+        metrics:
+          ca_cert: ((prom_scraper_metrics_tls.ca))
+          cert: ((prom_scraper_metrics_tls.certificate))
+          key: ((prom_scraper_metrics_tls.private_key))
+          server_name: prom_scraper_metrics
   - name: loggregator_agent
     release: loggregator-agent
     consumes:
@@ -122,6 +127,13 @@ variables:
     common_name: prom-scraper-tls
     extended_key_usage:
     - client_auth
+- name: prom-scraper-metrics
+  type: certificate
+  options:
+    ca: metric_scraper_ca
+    common_name: prom_scraper_metrics
+    extended_key_usage:
+    - server_auth
 - name: loggregator-agent-metrics
   type: certificate
   options:
