@@ -14,3 +14,5 @@ source_id: <%= source_id %>
 instance_id: <%= spec.id || spec.index.to_s %>
 scheme: https
 server_name: <%= p('service_metrics.tls.server_name') %>
+labels:
+  origin: <%= p('service_metrics.origin') %>
