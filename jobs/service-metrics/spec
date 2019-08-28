@@ -8,7 +8,6 @@ templates:
   service_metrics_ca.crt.erb: config/certs/service_metrics_ca.crt
   service_metrics.crt.erb: config/certs/service_metrics.crt
   service_metrics.key.erb: config/certs/service_metrics.key
-  metric_targets.yml.erb: config/metric_targets.yml
 
 packages:
 - service-metrics
