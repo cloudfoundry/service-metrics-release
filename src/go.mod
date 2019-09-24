@@ -8,8 +8,8 @@ require (
 	code.cloudfoundry.org/lager v2.0.0+incompatible
 	github.com/onsi/ginkgo v1.10.1
 	github.com/onsi/gomega v1.7.0
-	golang.org/x/net v0.0.0-20190921015927-1a5e07d1ff72 // indirect
-	golang.org/x/sys v0.0.0-20190922100055-0a153f010e69 // indirect
+	golang.org/x/net v0.0.0-20190923162816-aa69164e4478 // indirect
+	golang.org/x/sys v0.0.0-20190924154521-2837fb4f24fe // indirect
 	golang.org/x/text v0.3.2 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 )
