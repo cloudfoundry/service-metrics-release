@@ -1,7 +1,7 @@
 package metrics_test
 
 import (
-	"code.cloudfoundry.org/go-loggregator/metrics/testhelpers"
+	"code.cloudfoundry.org/go-metric-registry/testhelpers"
 	"code.cloudfoundry.org/service-metrics/metrics"
 	"fmt"
 	"os/exec"

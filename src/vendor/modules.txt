@@ -1,13 +1,13 @@
 # code.cloudfoundry.org/go-envstruct v1.5.0
 code.cloudfoundry.org/go-envstruct
-# code.cloudfoundry.org/go-loggregator v0.0.0-20190809213911-969cb33bee6a
-code.cloudfoundry.org/go-loggregator/metrics
-code.cloudfoundry.org/go-loggregator/metrics/testhelpers
+# code.cloudfoundry.org/go-metric-registry v0.0.0-20190930200807-cfc6a44b372f
+code.cloudfoundry.org/go-metric-registry
+code.cloudfoundry.org/go-metric-registry/testhelpers
 # code.cloudfoundry.org/lager v2.0.0+incompatible
 code.cloudfoundry.org/lager
 # code.cloudfoundry.org/tlsconfig v0.0.0-20190710180242-462f72de1106
 code.cloudfoundry.org/tlsconfig
-# github.com/beorn7/perks v1.0.0
+# github.com/beorn7/perks v1.0.1
 github.com/beorn7/perks/quantile
 # github.com/golang/protobuf v1.3.2
 github.com/golang/protobuf/proto
@@ -51,11 +51,11 @@ github.com/onsi/gomega/matchers/support/goraph/bipartitegraph
 github.com/onsi/gomega/matchers/support/goraph/edge
 github.com/onsi/gomega/matchers/support/goraph/node
 github.com/onsi/gomega/matchers/support/goraph/util
-# github.com/prometheus/client_golang v1.0.0
+# github.com/prometheus/client_golang v1.1.0
 github.com/prometheus/client_golang/prometheus
 github.com/prometheus/client_golang/prometheus/promhttp
 github.com/prometheus/client_golang/prometheus/internal
-# github.com/prometheus/client_model v0.0.0-20190129233127-fd36f4220a90
+# github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4
 github.com/prometheus/client_model/go
 # github.com/prometheus/common v0.6.0
 github.com/prometheus/common/expfmt

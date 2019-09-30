@@ -5,7 +5,7 @@ import (
 	"sort"
 	"sync"
 
-	"code.cloudfoundry.org/go-loggregator/metrics"
+	metrics "code.cloudfoundry.org/go-metric-registry"
 	"github.com/prometheus/client_golang/prometheus"
 )
 
@@ -20,21 +20,31 @@ func NewMetricsRegistry() *SpyMetricsRegistry {
 	}
 }
 
-func (s *SpyMetricsRegistry) NewCounter(name string, opts ...metrics.MetricOption) metrics.Counter {
+func (s *SpyMetricsRegistry) NewCounter(name, helpText string, opts ...metrics.MetricOption) metrics.Counter {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
-	m := newSpyMetric(name, opts)
+	m := newSpyMetric(name, helpText, opts)
 	m = s.addMetric(m)
 
 	return m
 }
 
-func (s *SpyMetricsRegistry) NewGauge(name string, opts ...metrics.MetricOption) metrics.Gauge {
+func (s *SpyMetricsRegistry) NewGauge(name, helpText string, opts ...metrics.MetricOption) metrics.Gauge {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
-	m := newSpyMetric(name, opts)
+	m := newSpyMetric(name, helpText, opts)
+	m = s.addMetric(m)
+
+	return m
+}
+
+func (s *SpyMetricsRegistry) NewHistogram(name, helpText string, buckets []float64, opts ...metrics.MetricOption) metrics.Histogram {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
+	m := newSpyMetric(name, helpText, opts)
 	m = s.addMetric(m)
 
 	return m
@@ -87,9 +97,10 @@ func (s *SpyMetricsRegistry) HasMetric(name string, tags map[string]string) bool
 	return ok
 }
 
-func newSpyMetric(name string, opts []metrics.MetricOption) *SpyMetric {
+func newSpyMetric(name, helpText string, opts []metrics.MetricOption) *SpyMetric {
 	sm := &SpyMetric{
 		name: name,
+		helpText: helpText,
 		Opts: &prometheus.Opts{
 			ConstLabels: make(prometheus.Labels),
 		},
@@ -111,9 +122,10 @@ type SpyMetric struct {
 	mu    sync.Mutex
 	value float64
 	name  string
+	helpText string
 
-	keys []string
-	Opts *prometheus.Opts
+	keys     []string
+	Opts     *prometheus.Opts
 }
 
 func (s *SpyMetric) Set(c float64) {
@@ -128,10 +140,22 @@ func (s *SpyMetric) Add(c float64) {
 	s.value += c
 }
 
+func (s *SpyMetric) Observe(c float64) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	s.value += c
+}
+
 func (s *SpyMetric) Value() float64 {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	return s.value
+}
+
+func (s *SpyMetric) HelpText() string {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	return s.helpText
 }
 
 func getMetricName(name string, tags map[string]string) string {

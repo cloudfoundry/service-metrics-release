@@ -1,7 +1,7 @@
 package main
 
 import (
-	egress "code.cloudfoundry.org/go-loggregator/metrics"
+	egress "code.cloudfoundry.org/go-metric-registry"
 	"code.cloudfoundry.org/service-metrics/metrics"
 	"flag"
 	"fmt"
@@ -40,11 +40,6 @@ func main() {
 	logger.RegisterSink(lager.NewWriterSink(os.Stderr, lager.ERROR))
 
 	m := egress.NewRegistry(log.New(os.Stdout, "", 0),
-		egress.WithDefaultTags(
-			map[string]string{
-				"origin": cfg.Origin,
-			},
-		),
 		egress.WithTLSServer(
 			cfg.Port,
 			cfg.CertFile,

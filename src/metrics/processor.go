@@ -2,7 +2,7 @@ package metrics
 
 import (
 	"bytes"
-	"code.cloudfoundry.org/go-loggregator/metrics"
+	"code.cloudfoundry.org/go-metric-registry"
 	"code.cloudfoundry.org/lager"
 	"encoding/json"
 	"os"
@@ -31,8 +31,8 @@ type Processor struct {
 }
 
 type metricsRegistry interface {
-	NewCounter(name string, opts ...metrics.MetricOption) metrics.Counter
-	NewGauge(name string, opts ...metrics.MetricOption) metrics.Gauge
+	NewCounter(name, helpText string, opts ...metrics.MetricOption) metrics.Counter
+	NewGauge(name, helpText string, opts ...metrics.MetricOption) metrics.Gauge
 }
 
 func NewProcessor(l Logger, m metricsRegistry, e Executor) Processor {
@@ -74,12 +74,13 @@ func (p *Processor) Process(cmdPath string, args ...string) {
 func (p *Processor) recordGauge(metric map[string]interface{}) {
 	sanitizeName, modified := sanitizeName(metric["key"].(string))
 	if modified {
-		p.metrics.NewCounter("modified_metric_name").Add(1.0)
+		p.metrics.NewCounter("modified_metric_name", "").Add(1.0)
 	}
 
 	p.metrics.NewGauge(
 		sanitizeName,
-		metrics.WithMetricTags(
+		"",
+		metrics.WithMetricLabels(
 			map[string]string{"unit": metric["unit"].(string)},
 		),
 	).Set(metric["value"].(float64))
@@ -88,11 +89,12 @@ func (p *Processor) recordGauge(metric map[string]interface{}) {
 func (p *Processor) recordCounter(metric map[string]interface{}) {
 	sanitizeName, modified := sanitizeName(metric["name"].(string))
 	if modified {
-		p.metrics.NewCounter("modified_metric_name").Add(1.0)
+		p.metrics.NewCounter("modified_metric_name", "").Add(1.0)
 	}
 
 	p.metrics.NewCounter(
 		sanitizeName,
+		"",
 	).Add(metric["delta"].(float64))
 }
 
