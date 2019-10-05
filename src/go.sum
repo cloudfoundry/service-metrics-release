@@ -1,7 +1,7 @@
 code.cloudfoundry.org/go-envstruct v1.5.0 h1:GmDS5Kbckkoxy39JGRwD/13jO1OROqf69B2vy4WBv/k=
 code.cloudfoundry.org/go-envstruct v1.5.0/go.mod h1:E2S/gzRZpZ51PZnIv7Bo7QvcgH18yio19upkrRk0xLU=
-code.cloudfoundry.org/go-metric-registry v0.0.0-20190930200807-cfc6a44b372f h1:0qS2SF6NDyoJ8xh7ehB7k5/ZLn4CMWBBMatNjUM9gC8=
-code.cloudfoundry.org/go-metric-registry v0.0.0-20190930200807-cfc6a44b372f/go.mod h1:cjL7/hjRgOnMy/FbPsGZG9qmR6oSPKG/FwKLLlh2j2U=
+code.cloudfoundry.org/go-metric-registry v0.0.0-20191004164645-33b67ef0f7d1 h1:yUFxUAfzyv4Qzky5/KXAPNaPZTrF4sgNh4bfpioCIK0=
+code.cloudfoundry.org/go-metric-registry v0.0.0-20191004164645-33b67ef0f7d1/go.mod h1:cjL7/hjRgOnMy/FbPsGZG9qmR6oSPKG/FwKLLlh2j2U=
 code.cloudfoundry.org/lager v2.0.0+incompatible h1:WZwDKDB2PLd/oL+USK4b4aEjUymIej9My2nUQ9oWEwQ=
 code.cloudfoundry.org/lager v2.0.0+incompatible/go.mod h1:O2sS7gKP3HM2iemG+EnwvyNQK7pTSC6Foi4QiMp9sSk=
 code.cloudfoundry.org/tlsconfig v0.0.0-20190710180242-462f72de1106 h1:F36x++Jh2aWiBK++W9wI97SJuprnROicHiV0HtdSOzc=

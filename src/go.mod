@@ -4,7 +4,7 @@ go 1.12
 
 require (
 	code.cloudfoundry.org/go-envstruct v1.5.0
-	code.cloudfoundry.org/go-metric-registry v0.0.0-20190930200807-cfc6a44b372f
+	code.cloudfoundry.org/go-metric-registry v0.0.0-20191004164645-33b67ef0f7d1
 	code.cloudfoundry.org/lager v2.0.0+incompatible
 	github.com/google/go-cmp v0.3.1 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
