@@ -13,7 +13,7 @@ require (
 	github.com/prometheus/client_golang v1.2.1 // indirect
 	github.com/square/certstrap v1.2.0 // indirect
 	golang.org/x/net v0.0.0-20191021144547-ec77196f6094 // indirect
-	golang.org/x/sys v0.0.0-20191025090151-53bf42e6b339 // indirect
+	golang.org/x/sys v0.0.0-20191026070338-33540a1f6037 // indirect
 	golang.org/x/text v0.3.2 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	gopkg.in/yaml.v2 v2.2.4 // indirect
