@@ -67,7 +67,7 @@ github.com/prometheus/common/internal/bitbucket.org/ww/goautoneg
 github.com/prometheus/procfs
 github.com/prometheus/procfs/internal/fs
 github.com/prometheus/procfs/internal/util
-# golang.org/x/net v0.0.0-20191119073136-fc4aabc6c914
+# golang.org/x/net v0.0.0-20191125084936-ffdde1057850
 golang.org/x/net/html/charset
 golang.org/x/net/html
 golang.org/x/net/html/atom
