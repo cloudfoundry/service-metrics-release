@@ -6,6 +6,7 @@ require (
 	code.cloudfoundry.org/go-envstruct v1.5.0
 	code.cloudfoundry.org/go-metric-registry v0.0.0-20191004164645-33b67ef0f7d1
 	code.cloudfoundry.org/lager v2.0.0+incompatible
+	code.cloudfoundry.org/tlsconfig v0.0.0-20191126220907-6c65973656e3 // indirect
 	github.com/cespare/xxhash/v2 v2.1.1 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/onsi/ginkgo v1.10.3
@@ -13,8 +14,8 @@ require (
 	github.com/prometheus/client_golang v1.2.1 // indirect
 	github.com/prometheus/procfs v0.0.8 // indirect
 	github.com/square/certstrap v1.2.0 // indirect
-	golang.org/x/net v0.0.0-20191125084936-ffdde1057850 // indirect
-	golang.org/x/sys v0.0.0-20191126131656-8a8471f7e56d // indirect
+	golang.org/x/net v0.0.0-20191126235420-ef20fe5d7933 // indirect
+	golang.org/x/sys v0.0.0-20191127021746-63cb32ae39b2 // indirect
 	golang.org/x/text v0.3.2 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	gopkg.in/yaml.v2 v2.2.7 // indirect
