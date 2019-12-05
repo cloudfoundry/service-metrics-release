@@ -19,4 +19,6 @@ builds:
     version: 1.12.2
   e85a696c-88fe-4cf7-7515-3ef85a819a87:
     version: 1.10.0
+  e9be94f4-f693-431d-7103-98a23e478f83:
+    version: 1.12.4
 format-version: "2"

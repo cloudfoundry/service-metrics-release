@@ -1,0 +1,49 @@
+name: service-metrics
+version: 1.12.4
+commit_hash: 1e46c26
+uncommitted_changes: false
+jobs:
+- name: odb-service-adapter
+  version: d1b93c43457c47f4d7be20eaf122b0811f03c61029df860b6c3f576db54b32fb
+  fingerprint: d1b93c43457c47f4d7be20eaf122b0811f03c61029df860b6c3f576db54b32fb
+  sha1: sha256:ab1b05a2e64cb36443636f60f998d473550bb595e89472ed0579fbbb72608670
+- name: service-metrics
+  version: 2db983c1824317680a6c57d3a6b81f07de79380b843ad8bd4bac7f5410df70fe
+  fingerprint: 2db983c1824317680a6c57d3a6b81f07de79380b843ad8bd4bac7f5410df70fe
+  sha1: sha256:9ba660e0b66d0671cf0946785eb71f8367e759c2d8f85bb627626b62d1f899f9
+- name: service-metrics-test-script
+  version: 4b99b1b0a412226bf3a05a28257313d0d654707776da0677ba6e4afae005c0fc
+  fingerprint: 4b99b1b0a412226bf3a05a28257313d0d654707776da0677ba6e4afae005c0fc
+  sha1: sha256:3ea407baf1d427ebdc4d1dd163d9ade5718f60a5a9dcd89b5e1753ed7f6e36b3
+packages:
+- name: golang-1-linux
+  version: 3f5a636273e06d4a94c6f7e7a3eee0df505a70197cc2d3f0cd567b32f4a799f5
+  fingerprint: 3f5a636273e06d4a94c6f7e7a3eee0df505a70197cc2d3f0cd567b32f4a799f5
+  sha1: sha256:737551912f720584269855bbb69933bec4dc57527f518283737f2a05f8919f9b
+  dependencies: []
+- name: golang1.13.3
+  version: b904364f962bdf74d7b4d8b2ca05017625928ade1271541eafec7e1b13d7ae4c
+  fingerprint: b904364f962bdf74d7b4d8b2ca05017625928ade1271541eafec7e1b13d7ae4c
+  sha1: sha256:02303387861c2b7f0d24ff3675e158e24519d8e5e5827951c7e5493a4ab0a6d0
+  dependencies: []
+- name: odb-service-adapter
+  version: 2b21514bc49a7da8507ccdfaf8ed4543f1a84dc1c087af09390e5ff83b4fc40c
+  fingerprint: 2b21514bc49a7da8507ccdfaf8ed4543f1a84dc1c087af09390e5ff83b4fc40c
+  sha1: sha256:017b1eb18d6cbe4530d90c04913a5d7ad0855f5250a4b4389e13f32f52bd4fd0
+  dependencies:
+  - golang1.13.3
+- name: service-metrics
+  version: 55ebbc745bb27c12644cc6711fbe49e7032ce3b7534b696fd660d59cf0a4a9c5
+  fingerprint: 55ebbc745bb27c12644cc6711fbe49e7032ce3b7534b696fd660d59cf0a4a9c5
+  sha1: sha256:a50a7df9fc5a2966a2b31a2a5db6dcb3571a093e23c885feaa78fbbfbef4e82e
+  dependencies:
+  - golang1.13.3
+- name: service-metrics-test-script
+  version: a901cca7563291a335b653a05d9a5fd8bdff725215f7ef75c587d2f5a52ba668
+  fingerprint: a901cca7563291a335b653a05d9a5fd8bdff725215f7ef75c587d2f5a52ba668
+  sha1: sha256:6b8f4e9eb999d0f1dbaa43eca279cd9243cae53170639d303419727fdb31d16a
+  dependencies: []
+license:
+  version: b21709eefeb1a84eba0822ce7abe1673d65e2a6249bb0ce05f04e804bb8bc933
+  fingerprint: b21709eefeb1a84eba0822ce7abe1673d65e2a6249bb0ce05f04e804bb8bc933
+  sha1: sha256:7f2a591d2f33f33cedd33e4c24418b8832325665b8ee0e3732c13448b9c0e3a4
