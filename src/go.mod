@@ -12,7 +12,7 @@ require (
 	github.com/onsi/gomega v1.8.1
 	github.com/prometheus/client_golang v1.3.0 // indirect
 	golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553 // indirect
-	golang.org/x/sys v0.0.0-20200106114638-5f8ca72cd632 // indirect
+	golang.org/x/sys v0.0.0-20200106162015-b016eb3dc98e // indirect
 	golang.org/x/text v0.3.2 // indirect
 	golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
