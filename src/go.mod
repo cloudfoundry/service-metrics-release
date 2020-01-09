@@ -6,7 +6,7 @@ require (
 	code.cloudfoundry.org/go-envstruct v1.5.0
 	code.cloudfoundry.org/go-metric-registry v0.0.0-20191209165758-93cfd5e30bb0
 	code.cloudfoundry.org/lager v2.0.0+incompatible
-	code.cloudfoundry.org/tlsconfig v0.0.0-20200103214402-4ae6f49cdca0 // indirect
+	code.cloudfoundry.org/tlsconfig v0.0.0-20200108215323-551ec42d1f74 // indirect
 	github.com/google/go-cmp v0.4.0 // indirect
 	github.com/kr/pretty v0.2.0 // indirect
 	github.com/onsi/ginkgo v1.11.0
