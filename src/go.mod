@@ -12,6 +12,7 @@ require (
 	github.com/onsi/ginkgo v1.11.0
 	github.com/onsi/gomega v1.8.1
 	github.com/prometheus/client_golang v1.3.0 // indirect
+	github.com/prometheus/common v0.8.0 // indirect
 	golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553 // indirect
 	golang.org/x/sys v0.0.0-20200107162124-548cf772de50 // indirect
 	golang.org/x/text v0.3.2 // indirect
