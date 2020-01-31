@@ -5,7 +5,7 @@ code.cloudfoundry.org/go-metric-registry
 code.cloudfoundry.org/go-metric-registry/testhelpers
 # code.cloudfoundry.org/lager v2.0.0+incompatible
 code.cloudfoundry.org/lager
-# code.cloudfoundry.org/tlsconfig v0.0.0-20200125003142-b5ccaa4fedfc
+# code.cloudfoundry.org/tlsconfig v0.0.0-20200131000646-bbe0f8da39b3
 code.cloudfoundry.org/tlsconfig
 # github.com/beorn7/perks v1.0.1
 github.com/beorn7/perks/quantile
