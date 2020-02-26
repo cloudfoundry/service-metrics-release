@@ -71,7 +71,7 @@ github.com/prometheus/common/model
 github.com/prometheus/procfs
 github.com/prometheus/procfs/internal/fs
 github.com/prometheus/procfs/internal/util
-# golang.org/x/net v0.0.0-20200222125558-5a598a2470a0
+# golang.org/x/net v0.0.0-20200226121028-0de0cce0169b
 golang.org/x/net/html
 golang.org/x/net/html/atom
 golang.org/x/net/html/charset
