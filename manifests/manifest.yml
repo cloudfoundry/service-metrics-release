@@ -82,6 +82,7 @@ instance_groups:
     consumes:
       doppler: {from: doppler, deployment: cf}
     properties:
+      grpc_port: 3459
       disable_udp: true
       loggregator:
         tls:
@@ -94,6 +95,34 @@ instance_groups:
         key: ((loggregator-agent-metrics.private_key))
         ca_cert: ((loggregator-agent-metrics.ca))
         server_name: loggregator-agent-metrics
+  - name: loggr-syslog-agent
+    release: loggregator-agent
+    properties:
+      port: 3460
+      drain_ca_cert: ((log_cache_syslog_tls.ca))
+      aggregate_drains: syslog-tls://q-s3.doppler.default.cf.bosh:6067?include-metrics-deprecated=true
+      tls:
+        ca_cert: ((loggregator_agent.ca))
+        cert: ((loggregator_agent.certificate))
+        key: ((loggregator_agent.private_key))
+      metrics:
+        ca_cert: ((syslog-agent-metrics.ca))
+        cert: ((syslog-agent-metrics.certificate))
+        key: ((syslog-agent-metrics.private_key))
+        server_name: syslog-agent-metrics
+  - name: loggr-forwarder-agent
+    release: loggregator-agent
+    properties:
+      tls:
+        ca_cert: ((loggregator_agent.ca))
+        cert: ((loggregator_agent.certificate))
+        key: ((loggregator_agent.private_key))
+      metrics:
+        ca_cert: ((forwarder-agent-metrics.ca))
+        cert: ((forwarder-agent-metrics.certificate))
+        key: ((forwarder-agent-metrics.private_key))
+        server_name: forwarder-agent-metrics
+
 
 variables:
 - name: loggregator_ca
@@ -141,6 +170,20 @@ variables:
     common_name: loggregator-agent-metrics
     extended_key_usage:
     - server_auth
+- name: syslog-agent-metrics
+  type: certificate
+  options:
+    ca: metric_scraper_ca
+    common_name: syslog-agent-metrics
+    extended_key_usage:
+    - server_auth
+- name: forwarder-agent-metrics
+  type: certificate
+  options:
+    ca: metric_scraper_ca
+    common_name: forwarder-agent-metrics
+    extended_key_usage:
+    - server_auth
 - name: loggregator_agent
   type: certificate
   options:
@@ -156,6 +199,13 @@ variables:
     extended_key_usage:
     - client_auth
     - server_auth
+- name: log_cache_syslog_tls
+  options:
+    ca: loggregator_ca
+    common_name: q-s3.doppler.default.cf.bosh
+    extended_key_usage:
+    - server_auth
+  type: certificate
 
 update:
   canaries: 1
