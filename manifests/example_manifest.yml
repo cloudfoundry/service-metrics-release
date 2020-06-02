@@ -99,7 +99,7 @@ instance_groups:
     release: loggregator-agent
     properties:
       port: 3460
-      drain_ca_cert: ((log_cache_syslog_tls.ca))
+      drain_ca_cert: ((loggregator_ca.certificate))
       aggregate_drains: syslog-tls://q-s3.doppler.default.cf.bosh:6067?include-metrics-deprecated=true
       tls:
         ca_cert: ((loggregator_agent.ca))
@@ -125,11 +125,21 @@ instance_groups:
 
 
 variables:
+###
+#
+# The CAs in this section need to be replaced with the versions from the CF
+# deployments with which this service instance is associated.
 - name: loggregator_ca
   type: certificate
   options:
     common_name: loggregatorCA
     is_ca: true
+- name: metric_scraper_ca
+  type: certificate
+  options:
+    is_ca: true
+    common_name: metricScraperCA
+
 - name: service-metrics
   type: certificate
   options:
@@ -137,11 +147,6 @@ variables:
     common_name: service-metrics
     extended_key_usage:
     - client_auth
-- name: metric_scraper_ca
-  type: certificate
-  options:
-    is_ca: true
-    common_name: metricScraperCA
 - name: service-metrics-metrics
   type: certificate
   options:
@@ -194,18 +199,9 @@ variables:
     - agent
     - localhost
     - 127.0.0.1
-    - ip6-localhost
-    - ::1
     extended_key_usage:
     - client_auth
     - server_auth
-- name: log_cache_syslog_tls
-  options:
-    ca: loggregator_ca
-    common_name: q-s3.doppler.default.cf.bosh
-    extended_key_usage:
-    - server_auth
-  type: certificate
 
 update:
   canaries: 1
