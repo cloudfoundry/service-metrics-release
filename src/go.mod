@@ -13,8 +13,8 @@ require (
 	github.com/onsi/gomega v1.10.1
 	github.com/prometheus/client_golang v1.6.0 // indirect
 	github.com/prometheus/common v0.10.0 // indirect
-	github.com/prometheus/procfs v0.1.0 // indirect
+	github.com/prometheus/procfs v0.1.1 // indirect
 	golang.org/x/net v0.0.0-20200602114024-627f9648deb9 // indirect
-	golang.org/x/sys v0.0.0-20200602225109-6fdc65e7d980 // indirect
+	golang.org/x/sys v0.0.0-20200610111108-226ff32320da // indirect
 	google.golang.org/protobuf v1.24.0 // indirect; pinned
 )
