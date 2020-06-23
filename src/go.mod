@@ -11,9 +11,9 @@ require (
 	github.com/kr/text v0.2.0 // indirect
 	github.com/onsi/ginkgo v1.13.0
 	github.com/onsi/gomega v1.10.1
-	github.com/prometheus/client_golang v1.7.0 // indirect
+	github.com/prometheus/client_golang v1.7.1 // indirect
 	golang.org/x/net v0.0.0-20200602114024-627f9648deb9 // indirect
-	golang.org/x/sys v0.0.0-20200622182413-4b0db7f3f76b // indirect
+	golang.org/x/sys v0.0.0-20200622214017-ed371f2e16b4 // indirect
 	golang.org/x/text v0.3.3 // indirect
 	google.golang.org/protobuf v1.24.0 // indirect; pinned
 )
