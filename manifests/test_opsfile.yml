@@ -1,0 +1,56 @@
+---
+- type: replace
+  path: /releases/-
+  value:
+    name: service-metrics
+    version: latest
+    url: https://bosh.io/d/github.com/cloudfoundry/service-metrics-release
+- type: replace
+  path: /instance_groups/-
+  value: 
+    name: service-metrics
+    instances: 1
+    stemcell: default
+    vm_type: minimal
+    networks:
+    - name: default
+    azs:
+    - z1
+    jobs:
+    - name: service-metrics-test-script
+      release: service-metrics
+    - name: service-metrics
+      release: service-metrics
+      properties:
+        service_metrics:
+          tls:
+            cert: ((service-metrics-metrics.certificate))
+            key: ((service-metrics-metrics.private_key))
+            ca_cert: ((service-metrics-metrics.ca))
+            server_name: service-metrics-metrics
+          mount_paths:
+          - /var/vcap/packages/service-metrics-test-script
+          origin: service-metrics-injector
+          execution_interval_seconds: 5
+          metrics_command: /var/vcap/packages/service-metrics-test-script/service-dummy.sh
+          monit_dependencies: []
+- type: replace
+  path: /variables/-
+  value:
+    name: service-metrics
+    type: certificate
+    options:
+      ca: loggregator_ca
+      common_name: service-metrics
+      extended_key_usage:
+      - client_auth
+- type: replace
+  path: /variables/-
+  value:
+    name: service-metrics-metrics
+    type: certificate
+    options:
+      ca: metric_scraper_ca
+      common_name: service-metrics-metrics
+      extended_key_usage:
+      - server_auth
