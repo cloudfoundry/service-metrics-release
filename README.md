@@ -4,6 +4,8 @@ Sevice Metrics is a framework for easily sending metrics to
 [Cloud Foundry's Loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html)
 system.
 
+If you have any questions, or want to get attention for a PR or issue please reach out on the [#logging-and-metrics channel in the cloudfoundry slack](https://cloudfoundry.slack.com/archives/CUW93AF3M)
+
 ## User Documentation
 
 User documentation can be found
