@@ -1,11 +1,12 @@
 package metrics_test
 
 import (
-	"code.cloudfoundry.org/go-metric-registry/testhelpers"
-	"code.cloudfoundry.org/service-metrics/metrics"
 	"fmt"
 	"os/exec"
 	"strings"
+
+	"code.cloudfoundry.org/go-metric-registry/testhelpers"
+	"code.cloudfoundry.org/service-metrics/metrics"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
