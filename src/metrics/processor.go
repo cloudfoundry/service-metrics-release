@@ -12,8 +12,7 @@ import (
 )
 
 var (
-	invalidNameRegex         = regexp.MustCompile(`[^a-zA-Z0-9_:]`)
-	invalidTagCharacterRegex = regexp.MustCompile(`[^a-zA-Z0-9_]`)
+	invalidNameRegex = regexp.MustCompile(`[^a-zA-Z0-9_:]`)
 )
 
 type Executor interface {

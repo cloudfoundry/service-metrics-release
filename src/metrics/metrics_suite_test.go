@@ -23,9 +23,6 @@ type spyLogger struct {
 	errCalled bool
 }
 
-func newSpyLogger() *spyLogger {
-	return &spyLogger{}
-}
 func (l *spyLogger) Info(action string, data ...lager.Data) {
 	l.infoKey = action
 	l.infoData = data
