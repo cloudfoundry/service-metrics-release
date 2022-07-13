@@ -2,12 +2,13 @@ package metrics
 
 import (
 	"bytes"
-	"code.cloudfoundry.org/go-metric-registry"
-	"code.cloudfoundry.org/lager"
 	"encoding/json"
 	"os"
 	"os/exec"
 	"regexp"
+
+	metrics "code.cloudfoundry.org/go-metric-registry"
+	"code.cloudfoundry.org/lager"
 )
 
 var (
