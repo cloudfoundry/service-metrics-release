@@ -8,7 +8,7 @@ import (
 	"code.cloudfoundry.org/go-metric-registry/testhelpers"
 	"code.cloudfoundry.org/service-metrics/metrics"
 
-	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )
 
