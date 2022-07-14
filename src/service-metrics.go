@@ -57,10 +57,8 @@ func main() {
 
 	processor.Process(cfg.MetricsCmd, cfg.MetricsCmdArgs...)
 	for {
-		select {
-		case <-time.After(cfg.MetricsInterval):
-			processor.Process(cfg.MetricsCmd, cfg.MetricsCmdArgs...)
-		}
+		<-time.After(cfg.MetricsInterval)
+		processor.Process(cfg.MetricsCmd, cfg.MetricsCmdArgs...)
 	}
 }
 
@@ -68,7 +66,10 @@ func parseConfig() {
 	cfg = config{
 		MetricsInterval: time.Minute,
 	}
-	envstruct.Load(&cfg)
+	err := envstruct.Load(&cfg)
+	if err != nil {
+		log.Panicf("error loading envstruct: %s", err)
+	}
 
 	cmdArgsFromEnv := cfg.MetricsCmdArgs
 	flag.StringVar(&cfg.Origin, "origin", cfg.Origin, "Required. Source name for metrics emitted by this process, e.g. service-name")
@@ -85,7 +86,10 @@ func parseConfig() {
 	assertFlag("origin", cfg.Origin)
 	assertFlag("metrics-cmd", cfg.MetricsCmd)
 
-	envstruct.WriteReport(&cfg)
+	err = envstruct.WriteReport(&cfg)
+	if err != nil {
+		log.Panicf("error writing report: %s", err)
+	}
 }
 
 type multiFlag []string
@@ -118,16 +122,4 @@ func assertFlag(name, value string) {
 		fmt.Fprintf(os.Stderr, "\nMust provide --%s", name)
 		os.Exit(1)
 	}
-}
-
-type logWrapper struct {
-	lager.Logger
-}
-
-func (l *logWrapper) Printf(f string, a ...interface{}) {
-	l.Info(fmt.Sprintf(f, a...))
-}
-
-func (l *logWrapper) Panicf(f string, a ...interface{}) {
-	l.Fatal(fmt.Sprintf(f, a...), nil)
 }
