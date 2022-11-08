@@ -1,5 +1,5 @@
-# code.cloudfoundry.org/go-envstruct v1.5.0
-## explicit; go 1.12
+# code.cloudfoundry.org/go-envstruct v1.6.0
+## explicit; go 1.19
 code.cloudfoundry.org/go-envstruct
 # code.cloudfoundry.org/go-metric-registry v0.0.0-20200413202920-40d97c8804ec
 ## explicit; go 1.12
