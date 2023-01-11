@@ -8,7 +8,7 @@ import (
 	"regexp"
 
 	metrics "code.cloudfoundry.org/go-metric-registry"
-	"code.cloudfoundry.org/lager"
+	"code.cloudfoundry.org/lager/v3"
 )
 
 var (

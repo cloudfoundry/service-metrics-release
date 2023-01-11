@@ -5,9 +5,10 @@ code.cloudfoundry.org/go-envstruct
 ## explicit; go 1.12
 code.cloudfoundry.org/go-metric-registry
 code.cloudfoundry.org/go-metric-registry/testhelpers
-# code.cloudfoundry.org/lager v2.0.0+incompatible
-## explicit
-code.cloudfoundry.org/lager
+# code.cloudfoundry.org/lager/v3 v3.0.0
+## explicit; go 1.19
+code.cloudfoundry.org/lager/v3
+code.cloudfoundry.org/lager/v3/internal/truncate
 # code.cloudfoundry.org/tlsconfig v0.0.0-20200131000646-bbe0f8da39b3
 ## explicit; go 1.13
 code.cloudfoundry.org/tlsconfig
