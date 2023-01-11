@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"code.cloudfoundry.org/go-metric-registry/testhelpers"
-	"code.cloudfoundry.org/service-metrics/metrics"
+	"code.cloudfoundry.org/service-metrics-release/metrics"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

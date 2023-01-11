@@ -1,4 +1,4 @@
-module code.cloudfoundry.org/service-metrics
+module code.cloudfoundry.org/service-metrics-release
 
 go 1.19
 

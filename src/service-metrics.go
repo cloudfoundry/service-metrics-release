@@ -8,7 +8,7 @@ import (
 	"time"
 
 	egress "code.cloudfoundry.org/go-metric-registry"
-	"code.cloudfoundry.org/service-metrics/metrics"
+	"code.cloudfoundry.org/service-metrics-release/metrics"
 
 	"code.cloudfoundry.org/go-envstruct"
 	"code.cloudfoundry.org/lager"
