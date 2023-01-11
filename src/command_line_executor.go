@@ -5,7 +5,7 @@ import (
 	"os/exec"
 	"syscall"
 
-	"code.cloudfoundry.org/lager"
+	"code.cloudfoundry.org/lager/v3"
 	"code.cloudfoundry.org/service-metrics-release/metrics"
 )
 

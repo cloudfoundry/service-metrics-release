@@ -11,7 +11,7 @@ import (
 	"code.cloudfoundry.org/service-metrics-release/metrics"
 
 	"code.cloudfoundry.org/go-envstruct"
-	"code.cloudfoundry.org/lager"
+	"code.cloudfoundry.org/lager/v3"
 )
 
 type config struct {
