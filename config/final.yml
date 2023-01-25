@@ -1,6 +1,6 @@
 ---
 name: service-metrics
 blobstore:
-  provider: s3
+  provider: gcs
   options:
     bucket_name: oss-service-metrics-release-blobs
