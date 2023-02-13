@@ -1,6 +1,6 @@
 module code.cloudfoundry.org/service-metrics-release
 
-go 1.19
+go 1.20
 
 require (
 	code.cloudfoundry.org/go-envstruct v1.6.0
