@@ -51,7 +51,7 @@ github.com/google/pprof/profile
 github.com/matttproud/golang_protobuf_extensions/pbutil
 # github.com/onsi/ginkgo v1.16.5
 ## explicit; go 1.16
-# github.com/onsi/ginkgo/v2 v2.8.1
+# github.com/onsi/ginkgo/v2 v2.8.3
 ## explicit; go 1.18
 github.com/onsi/ginkgo/v2
 github.com/onsi/ginkgo/v2/config
