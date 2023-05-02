@@ -49,6 +49,8 @@ builds:
     version: 2.0.25
   b5c97d20-7492-4ac5-54c6-ded52c549722:
     version: 2.0.18
+  b8409d9e-c883-4f00-5271-c8561c6d22fe:
+    version: 2.0.28
   be43e554-63be-4207-701a-5e09ef2700cc:
     version: 2.0.17
   c1947cee-42d6-455f-4d8b-844ff1700c47:
