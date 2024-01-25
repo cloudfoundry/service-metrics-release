@@ -1,5 +1,5 @@
-code.cloudfoundry.org/go-envstruct v1.6.0 h1:n3ReWhxIb8T8Pedu2ONAtWZxHmytPl9MmLfm1M4x8E0=
-code.cloudfoundry.org/go-envstruct v1.6.0/go.mod h1:d36KAtkHU9KBkz1yvLM3oRoWTvZ2ipSPchQ2BX/p0pk=
+code.cloudfoundry.org/go-envstruct v1.7.0 h1:6e90Z+lTPrI2jMJOoKErskL7a+Qm97GFiithcXeVWdk=
+code.cloudfoundry.org/go-envstruct v1.7.0/go.mod h1:xm6Eto/WB7Qq1iwEN29jUQXDeUCJ+nruwAnnrpY0s4E=
 code.cloudfoundry.org/go-metric-registry v0.0.0-20231013173750-e5e4afc32f4f h1:bkV9v32cFEiFS/ngHXwKFnubTSO31qKJD6tHmbtXlfg=
 code.cloudfoundry.org/go-metric-registry v0.0.0-20231013173750-e5e4afc32f4f/go.mod h1:s2AP+kdb3hV9qObOoTlTk/tbnGOOZJ2RSQthle2/MYo=
 code.cloudfoundry.org/lager/v3 v3.0.3 h1:/UTmadZfIaKuT/whEinSxK1mzRfNu1uPfvjFfGqiwzM=
