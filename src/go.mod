@@ -3,7 +3,7 @@ module code.cloudfoundry.org/service-metrics-release
 go 1.21
 
 require (
-	code.cloudfoundry.org/go-envstruct v1.6.0
+	code.cloudfoundry.org/go-envstruct v1.7.0
 	code.cloudfoundry.org/go-metric-registry v0.0.0-20231013173750-e5e4afc32f4f
 	code.cloudfoundry.org/lager/v3 v3.0.3
 	github.com/onsi/ginkgo/v2 v2.15.0
