@@ -7,8 +7,8 @@ toolchain go1.22.6
 require (
 	code.cloudfoundry.org/go-envstruct v1.7.0
 	code.cloudfoundry.org/go-metric-registry v0.0.0-20240813203836-dd62fec970e7
-	code.cloudfoundry.org/lager/v3 v3.1.0
-	github.com/onsi/ginkgo/v2 v2.20.0
+	code.cloudfoundry.org/lager/v3 v3.3.0
+	github.com/onsi/ginkgo/v2 v2.20.1
 	github.com/onsi/gomega v1.34.1
 )
 
@@ -19,7 +19,7 @@ require (
 	github.com/klauspost/compress v1.17.9 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/openzipkin/zipkin-go v0.4.3 // indirect
-	golang.org/x/exp v0.0.0-20240808152545-0cdaa3abc0fa // indirect
+	golang.org/x/exp v0.0.0-20240823005443-9b4947da3948 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
