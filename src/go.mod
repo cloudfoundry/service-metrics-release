@@ -6,7 +6,7 @@ toolchain go1.22.7
 
 require (
 	code.cloudfoundry.org/go-envstruct v1.7.0
-	code.cloudfoundry.org/go-metric-registry v0.0.0-20240828184116-9710cd731bb8
+	code.cloudfoundry.org/go-metric-registry v0.0.0-20240911230103-8810864fa5d2
 	code.cloudfoundry.org/lager/v3 v3.6.0
 	github.com/onsi/ginkgo/v2 v2.20.2
 	github.com/onsi/gomega v1.34.2
