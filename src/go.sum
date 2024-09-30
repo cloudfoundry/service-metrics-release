@@ -1,7 +1,7 @@
 code.cloudfoundry.org/go-envstruct v1.7.0 h1:6e90Z+lTPrI2jMJOoKErskL7a+Qm97GFiithcXeVWdk=
 code.cloudfoundry.org/go-envstruct v1.7.0/go.mod h1:xm6Eto/WB7Qq1iwEN29jUQXDeUCJ+nruwAnnrpY0s4E=
-code.cloudfoundry.org/go-metric-registry v0.0.0-20240911230103-8810864fa5d2 h1:W2VwC5aKh8zHys47wGrULci0mCI/MeQ96qLCThuH9Ro=
-code.cloudfoundry.org/go-metric-registry v0.0.0-20240911230103-8810864fa5d2/go.mod h1:dcrSGyc9oIIjD6dkcNBOmOcvxTLaXNmdpHhSi9MsXbo=
+code.cloudfoundry.org/go-metric-registry v0.0.0-20240924162441-23e55bf8b6be h1:4X0t09FfNj9FkL57g4QGhPp6Al8FKJuQW+JqvI+Hznw=
+code.cloudfoundry.org/go-metric-registry v0.0.0-20240924162441-23e55bf8b6be/go.mod h1:1HZDVeO8ym+CdBjc5hEa0+ybcSPd3Y+EnU9YLqFJZfw=
 code.cloudfoundry.org/lager/v3 v3.6.0 h1:7SRXrt8N/QzR36yU45wd+oD1dAGhkNE3CrO+9wb6OJs=
 code.cloudfoundry.org/lager/v3 v3.6.0/go.mod h1:gVXmBdSINVyV5bzwY8YOUO7ELszPIHzqCrUA3PcMy2Y=
 code.cloudfoundry.org/tlsconfig v0.5.0 h1:wkdwdVPMPUowUyR4jzl7EttWD6j3Y8uQKcc2VxBh+Nk=
@@ -20,10 +20,10 @@ github.com/go-task/slim-sprig/v3 v3.0.0 h1:sUs3vkvUymDpBKi3qH1YSqBQk9+9D/8M2mN1v
 github.com/go-task/slim-sprig/v3 v3.0.0/go.mod h1:W848ghGpv3Qj3dhTPRyJypKRiqCdHZiAzKg9hl15HA8=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
 github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
-github.com/google/pprof v0.0.0-20240910150728-a0b0bb1d4134 h1:c5FlPPgxOn7kJz3VoPLkQYQXGBS3EklQ4Zfi57uOuqQ=
-github.com/google/pprof v0.0.0-20240910150728-a0b0bb1d4134/go.mod h1:vavhavw2zAxS5dIdcRluK6cSGGPlZynqzFM8NdvU144=
-github.com/klauspost/compress v1.17.9 h1:6KIumPrER1LHsvBVuDa0r5xaG0Es51mhhB9BQB2qeMA=
-github.com/klauspost/compress v1.17.9/go.mod h1:Di0epgTjJY877eYKx5yC51cX2A2Vl2ibi7bDH9ttBbw=
+github.com/google/pprof v0.0.0-20240929191954-255acd752d31 h1:LcRdQWywSgfi5jPsYZ1r2avbbs5IQ5wtyhMBCcokyo4=
+github.com/google/pprof v0.0.0-20240929191954-255acd752d31/go.mod h1:vavhavw2zAxS5dIdcRluK6cSGGPlZynqzFM8NdvU144=
+github.com/klauspost/compress v1.17.10 h1:oXAz+Vh0PMUvJczoi+flxpnBEPxoER1IaAnU/NMPtT0=
+github.com/klauspost/compress v1.17.10/go.mod h1:pMDklpSncoRMuLFrf1W9Ss9KT+0rH90U12bZKk7uwG0=
 github.com/kr/pretty v0.3.1 h1:flRD4NNwYAUpkphVc1HcthR4KEIFJ65n8Mw5qdRn3LE=
 github.com/kr/pretty v0.3.1/go.mod h1:hoEshYVHaxMs3cyo3Yncou5ZscifuDolrwPKZanG3xk=
 github.com/kr/text v0.2.0 h1:5Nx0Ya0ZqY2ygV366QzturHI13Jq95ApcVaJBhpS+AY=
