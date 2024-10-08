@@ -2,8 +2,8 @@ code.cloudfoundry.org/go-envstruct v1.7.0 h1:6e90Z+lTPrI2jMJOoKErskL7a+Qm97GFiit
 code.cloudfoundry.org/go-envstruct v1.7.0/go.mod h1:xm6Eto/WB7Qq1iwEN29jUQXDeUCJ+nruwAnnrpY0s4E=
 code.cloudfoundry.org/go-metric-registry v0.0.0-20240924162441-23e55bf8b6be h1:4X0t09FfNj9FkL57g4QGhPp6Al8FKJuQW+JqvI+Hznw=
 code.cloudfoundry.org/go-metric-registry v0.0.0-20240924162441-23e55bf8b6be/go.mod h1:1HZDVeO8ym+CdBjc5hEa0+ybcSPd3Y+EnU9YLqFJZfw=
-code.cloudfoundry.org/lager/v3 v3.8.0 h1:Lq5xSm+C6BLQ7cXJbmqw3dTnkigAXcsxVwXoxLO5PzI=
-code.cloudfoundry.org/lager/v3 v3.8.0/go.mod h1:mjCN1W7Jdy2PLFbSN/kX3NpR3wMi+JZfp3aFd2h3n+8=
+code.cloudfoundry.org/lager/v3 v3.9.0 h1:/FxqWzEbrF2cK5lubv39x5ZdKf3n3dQjLSHn9w1AY24=
+code.cloudfoundry.org/lager/v3 v3.9.0/go.mod h1:Cr9lUToD9PPODiUNT2taBin7rza3B72J6XV4foVczSg=
 code.cloudfoundry.org/tlsconfig v0.6.0 h1:GPhvF8gBmweuEyBhKuQvTIV/Ce3N7z2mWpS5npQuejk=
 code.cloudfoundry.org/tlsconfig v0.6.0/go.mod h1:jKhTjklPGH7pD9wLyUb0EmYmKgHGy7DMRgWOG4oFd34=
 filippo.io/edwards25519 v1.1.0 h1:FNf4tywRC1HmFuKW5xopWpigGjJKiJSV0Cqo0cJWDaA=
