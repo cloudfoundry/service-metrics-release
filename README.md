@@ -1,3 +1,10 @@
+# Deprecated
+
+This release is deprecated and we do not recomend using it. Instead please
+expose a prometheus metrics exposition endpoint and use [prom
+scraper](https://github.com/cloudfoundry/loggregator-agent-release/blob/main/docs/prom-scraper.md)
+to scrape that endpoint.
+
 # service-metrics-release
 
 Sevice Metrics is a framework for easily sending metrics to
