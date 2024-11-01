@@ -9,7 +9,7 @@ require (
 	code.cloudfoundry.org/go-metric-registry v0.0.0-20241025180809-3ab2448983bd
 	code.cloudfoundry.org/lager/v3 v3.11.0
 	github.com/onsi/ginkgo/v2 v2.20.2
-	github.com/onsi/gomega v1.34.2
+	github.com/onsi/gomega v1.35.1
 )
 
 require (
