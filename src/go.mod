@@ -2,12 +2,12 @@ module code.cloudfoundry.org/service-metrics-release
 
 go 1.22.0
 
-toolchain go1.22.8
+toolchain go1.22.9
 
 require (
 	code.cloudfoundry.org/go-envstruct v1.7.0
 	code.cloudfoundry.org/go-metric-registry v0.0.0-20241104233614-1bb1a592dfb9
-	code.cloudfoundry.org/lager/v3 v3.14.0
+	code.cloudfoundry.org/lager/v3 v3.15.0
 	github.com/onsi/ginkgo/v2 v2.21.0
 	github.com/onsi/gomega v1.35.1
 )
@@ -23,7 +23,7 @@ require (
 )
 
 require (
-	code.cloudfoundry.org/tlsconfig v0.8.0 // indirect
+	code.cloudfoundry.org/tlsconfig v0.9.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/google/pprof v0.0.0-20241101162523-b92577c0c142 // indirect
@@ -35,5 +35,5 @@ require (
 	golang.org/x/sys v0.27.0 // indirect
 	golang.org/x/text v0.20.0 // indirect
 	golang.org/x/tools v0.27.0 // indirect
-	google.golang.org/protobuf v1.35.1 // indirect; pinned
+	google.golang.org/protobuf v1.35.2 // indirect; pinned
 )
