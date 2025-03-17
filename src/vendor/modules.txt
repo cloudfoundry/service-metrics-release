@@ -1,15 +1,15 @@
 # code.cloudfoundry.org/go-envstruct v1.7.0
 ## explicit; go 1.21
 code.cloudfoundry.org/go-envstruct
-# code.cloudfoundry.org/go-metric-registry v0.0.0-20250310133323-4cab4f919c81
+# code.cloudfoundry.org/go-metric-registry v0.0.0-20250317173500-2aa4b42ca9ca
 ## explicit; go 1.23.0
 code.cloudfoundry.org/go-metric-registry
 code.cloudfoundry.org/go-metric-registry/testhelpers
-# code.cloudfoundry.org/lager/v3 v3.28.0
-## explicit; go 1.22.0
+# code.cloudfoundry.org/lager/v3 v3.29.0
+## explicit; go 1.23.0
 code.cloudfoundry.org/lager/v3
 code.cloudfoundry.org/lager/v3/internal/truncate
-# code.cloudfoundry.org/tlsconfig v0.20.0
+# code.cloudfoundry.org/tlsconfig v0.21.0
 ## explicit; go 1.23.0
 code.cloudfoundry.org/tlsconfig
 # github.com/beorn7/perks v1.0.1
@@ -32,8 +32,8 @@ github.com/google/go-cmp/cmp/internal/diff
 github.com/google/go-cmp/cmp/internal/flags
 github.com/google/go-cmp/cmp/internal/function
 github.com/google/go-cmp/cmp/internal/value
-# github.com/google/pprof v0.0.0-20250302191652-9094ed2288e7
-## explicit; go 1.22
+# github.com/google/pprof v0.0.0-20250317173921-a4b03ec1a45e
+## explicit; go 1.23
 github.com/google/pprof/profile
 # github.com/klauspost/compress v1.18.0
 ## explicit; go 1.22
@@ -98,7 +98,7 @@ github.com/prometheus/client_golang/prometheus/promhttp
 # github.com/prometheus/client_model v0.6.1
 ## explicit; go 1.19
 github.com/prometheus/client_model/go
-# github.com/prometheus/common v0.62.0
+# github.com/prometheus/common v0.63.0
 ## explicit; go 1.21
 github.com/prometheus/common/expfmt
 github.com/prometheus/common/model
