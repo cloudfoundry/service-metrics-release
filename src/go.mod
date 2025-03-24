@@ -6,10 +6,10 @@ toolchain go1.23.7
 
 require (
 	code.cloudfoundry.org/go-envstruct v1.7.0
-	code.cloudfoundry.org/go-metric-registry v0.0.0-20250317173500-2aa4b42ca9ca
-	code.cloudfoundry.org/lager/v3 v3.29.0
-	github.com/onsi/ginkgo/v2 v2.23.0
-	github.com/onsi/gomega v1.36.2
+	code.cloudfoundry.org/go-metric-registry v0.0.0-20250318085922-a92b53f5f52f
+	code.cloudfoundry.org/lager/v3 v3.30.0
+	github.com/onsi/ginkgo/v2 v2.23.3
+	github.com/onsi/gomega v1.36.3
 )
 
 require (
@@ -30,10 +30,10 @@ require (
 	github.com/prometheus/client_golang v1.21.1 // indirect
 	github.com/prometheus/client_model v0.6.1 // indirect
 	github.com/prometheus/common v0.63.0 // indirect
-	github.com/prometheus/procfs v0.15.1 // indirect
+	github.com/prometheus/procfs v0.16.0 // indirect
 	golang.org/x/net v0.37.0 // indirect
 	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/text v0.23.0 // indirect
 	golang.org/x/tools v0.31.0 // indirect
-	google.golang.org/protobuf v1.36.5 // indirect; pinned
+	google.golang.org/protobuf v1.36.6 // indirect; pinned
 )
