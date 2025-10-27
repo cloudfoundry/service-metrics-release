@@ -1,7 +1,7 @@
 # code.cloudfoundry.org/go-envstruct v1.7.0
 ## explicit; go 1.21
 code.cloudfoundry.org/go-envstruct
-# code.cloudfoundry.org/go-metric-registry v0.0.0-20251014122753-d93e87f6e5e1
+# code.cloudfoundry.org/go-metric-registry v0.0.0-20251020183543-7ff6993ea85d
 ## explicit; go 1.24.0
 code.cloudfoundry.org/go-metric-registry
 code.cloudfoundry.org/go-metric-registry/testhelpers
@@ -9,7 +9,7 @@ code.cloudfoundry.org/go-metric-registry/testhelpers
 ## explicit; go 1.24.0
 code.cloudfoundry.org/lager/v3
 code.cloudfoundry.org/lager/v3/internal/truncate
-# code.cloudfoundry.org/tlsconfig v0.36.0
+# code.cloudfoundry.org/tlsconfig v0.37.0
 ## explicit; go 1.24.0
 code.cloudfoundry.org/tlsconfig
 # github.com/Masterminds/semver/v3 v3.4.0
@@ -41,7 +41,7 @@ github.com/google/pprof/profile
 # github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822
 ## explicit
 github.com/munnerz/goautoneg
-# github.com/onsi/ginkgo/v2 v2.26.0
+# github.com/onsi/ginkgo/v2 v2.27.1
 ## explicit; go 1.23.0
 github.com/onsi/ginkgo/v2
 github.com/onsi/ginkgo/v2/config
@@ -97,8 +97,8 @@ github.com/prometheus/client_model/go
 ## explicit; go 1.24.0
 github.com/prometheus/common/expfmt
 github.com/prometheus/common/model
-# github.com/prometheus/procfs v0.17.0
-## explicit; go 1.23.0
+# github.com/prometheus/procfs v0.19.1
+## explicit; go 1.24.0
 github.com/prometheus/procfs
 github.com/prometheus/procfs/internal/fs
 github.com/prometheus/procfs/internal/util
