@@ -4,8 +4,8 @@ go 1.25.0
 
 require (
 	code.cloudfoundry.org/go-envstruct v1.7.0
-	code.cloudfoundry.org/go-metric-registry v0.0.0-20260121160742-6919d065dcf4
-	code.cloudfoundry.org/lager/v3 v3.59.0
+	code.cloudfoundry.org/go-metric-registry v0.0.0-20260203145707-c2be33097cc5
+	code.cloudfoundry.org/lager/v3 v3.60.0
 	github.com/onsi/ginkgo/v2 v2.28.1
 	github.com/onsi/gomega v1.39.1
 )
@@ -33,7 +33,7 @@ require (
 	github.com/prometheus/common v0.67.5 // indirect
 	github.com/prometheus/procfs v0.19.2 // indirect
 	golang.org/x/net v0.49.0 // indirect
-	golang.org/x/sys v0.40.0 // indirect
+	golang.org/x/sys v0.41.0 // indirect
 	golang.org/x/text v0.33.0 // indirect
 	golang.org/x/tools v0.41.0 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect; pinned
