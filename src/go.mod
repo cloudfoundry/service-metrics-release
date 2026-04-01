@@ -24,7 +24,7 @@ require (
 )
 
 require (
-	code.cloudfoundry.org/tlsconfig v0.49.0 // indirect
+	code.cloudfoundry.org/tlsconfig v0.50.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/google/pprof v0.0.0-20260302011040-a15ffb7f9dcc // indirect
