@@ -19,6 +19,7 @@ User documentation can be found
 [here](https://docs.pivotal.io/svc-sdk/service-metrics). Documentation is
 targeted at service authors wishing to send metrics from their service and
 operators wanting to configure service metrics.
+#####
 
 ## BOSH Release Artifacts
 
