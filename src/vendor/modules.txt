@@ -1,15 +1,15 @@
 # code.cloudfoundry.org/go-envstruct v1.7.0
 ## explicit; go 1.21
 code.cloudfoundry.org/go-envstruct
-# code.cloudfoundry.org/go-metric-registry v0.0.0-20260608225203-cd1a85c873d4
-## explicit; go 1.25.1
+# code.cloudfoundry.org/go-metric-registry v0.0.0-20260617164716-452ba9c14ce2
+## explicit; go 1.25.8
 code.cloudfoundry.org/go-metric-registry
 code.cloudfoundry.org/go-metric-registry/testhelpers
-# code.cloudfoundry.org/lager/v3 v3.73.0
+# code.cloudfoundry.org/lager/v3 v3.74.0
 ## explicit; go 1.25.0
 code.cloudfoundry.org/lager/v3
 code.cloudfoundry.org/lager/v3/internal/truncate
-# code.cloudfoundry.org/tlsconfig v0.59.0
+# code.cloudfoundry.org/tlsconfig v0.60.0
 ## explicit; go 1.25.8
 code.cloudfoundry.org/tlsconfig
 # github.com/Masterminds/semver/v3 v3.5.0
@@ -94,7 +94,7 @@ github.com/prometheus/client_golang/prometheus/promhttp/internal
 # github.com/prometheus/client_model v0.6.2
 ## explicit; go 1.22.0
 github.com/prometheus/client_model/go
-# github.com/prometheus/common v0.68.1
+# github.com/prometheus/common v0.69.0
 ## explicit; go 1.25.0
 github.com/prometheus/common/expfmt
 github.com/prometheus/common/model
