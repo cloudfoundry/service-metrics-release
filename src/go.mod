@@ -5,7 +5,7 @@ go 1.25.8
 require (
 	code.cloudfoundry.org/go-envstruct v1.7.0
 	code.cloudfoundry.org/go-metric-registry v0.0.0-20260729193147-2eaf2ad59577
-	code.cloudfoundry.org/lager/v3 v3.80.0
+	code.cloudfoundry.org/lager/v3 v3.81.0
 	github.com/onsi/ginkgo/v2 v2.32.0
 	github.com/onsi/gomega v1.42.1
 )
@@ -23,7 +23,7 @@ require (
 )
 
 require (
-	code.cloudfoundry.org/tlsconfig v0.63.0 // indirect
+	code.cloudfoundry.org/tlsconfig v0.64.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/google/pprof v0.0.0-20260802141513-ef3492d7dac3 // indirect
