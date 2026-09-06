@@ -1,0 +1,49 @@
+name: service-metrics
+version: 2.0.57
+commit_hash: e0748ba3
+uncommitted_changes: false
+jobs:
+- name: service-metrics
+  version: a5d8038a90d618cb7a83ccc97bdd47f6a3dadb6a3d4a47173f09b9c3910d6057
+  fingerprint: a5d8038a90d618cb7a83ccc97bdd47f6a3dadb6a3d4a47173f09b9c3910d6057
+  sha1: sha256:ca9dd7434886e539e0800b04ee491fb0436d5143b3952fab457957793080f2ea
+  packages:
+  - service-metrics
+- name: service-metrics-test-script
+  version: 4b99b1b0a412226bf3a05a28257313d0d654707776da0677ba6e4afae005c0fc
+  fingerprint: 4b99b1b0a412226bf3a05a28257313d0d654707776da0677ba6e4afae005c0fc
+  sha1: sha256:3ea407baf1d427ebdc4d1dd163d9ade5718f60a5a9dcd89b5e1753ed7f6e36b3
+  packages:
+  - service-metrics-test-script
+packages:
+- name: golang-1.26-darwin
+  version: 368f534c4674c8105cf3cbd914969b948248f4fb78a47db06d7d93185cdf57eb
+  fingerprint: 368f534c4674c8105cf3cbd914969b948248f4fb78a47db06d7d93185cdf57eb
+  sha1: sha256:76b27d3ab5c3e5ca21d82b298551593ed09c44c44fcb743a493f9d3ec3e17a62
+  dependencies: []
+- name: golang-1.26-linux
+  version: a2d12250d6eb3803abcaa1b0cd834930d35a98619d1396f01dc0bc81aa70d373
+  fingerprint: a2d12250d6eb3803abcaa1b0cd834930d35a98619d1396f01dc0bc81aa70d373
+  sha1: sha256:859c1d42e236bb282eb1b9091f693abaa30c684500e8449e879d583255be6e39
+  dependencies: []
+- name: golang-1.26-windows
+  version: fee217ccfc6dd7ce6b8e195b8d3ac11279817fe68bc84a51abebca457404dc29
+  fingerprint: fee217ccfc6dd7ce6b8e195b8d3ac11279817fe68bc84a51abebca457404dc29
+  sha1: sha256:f51fe9d120d92077621f73f1282b88106183e136ed07456a7af1a58392ae1f6f
+  dependencies: []
+- name: service-metrics
+  version: 9c5c5abf950ce4af21ae79df42edc3366dab9616448e2c55ad574e6f7b9cc707
+  fingerprint: 9c5c5abf950ce4af21ae79df42edc3366dab9616448e2c55ad574e6f7b9cc707
+  sha1: sha256:032bed5664c0ad96833ad334bcb5483f90a5f8099ffe78d7f0368e8668ea76ff
+  dependencies:
+  - golang-1.26-linux
+- name: service-metrics-test-script
+  version: a901cca7563291a335b653a05d9a5fd8bdff725215f7ef75c587d2f5a52ba668
+  fingerprint: a901cca7563291a335b653a05d9a5fd8bdff725215f7ef75c587d2f5a52ba668
+  sha1: sha256:6b8f4e9eb999d0f1dbaa43eca279cd9243cae53170639d303419727fdb31d16a
+  dependencies: []
+license:
+  version: b21709eefeb1a84eba0822ce7abe1673d65e2a6249bb0ce05f04e804bb8bc933
+  fingerprint: b21709eefeb1a84eba0822ce7abe1673d65e2a6249bb0ce05f04e804bb8bc933
+  sha1: sha256:7f2a591d2f33f33cedd33e4c24418b8832325665b8ee0e3732c13448b9c0e3a4
+no_compression: false
