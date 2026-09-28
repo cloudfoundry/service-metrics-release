@@ -4,10 +4,10 @@ go 1.26.0
 
 require (
 	code.cloudfoundry.org/go-envstruct v1.7.0
-	code.cloudfoundry.org/go-metric-registry v0.0.0-20260915045411-6e7ffc53e0ba
-	code.cloudfoundry.org/lager/v3 v3.87.0
+	code.cloudfoundry.org/go-metric-registry v0.0.0-20260922073832-5661ea5c3a88
+	code.cloudfoundry.org/lager/v3 v3.88.0
 	github.com/onsi/ginkgo/v2 v2.33.0
-	github.com/onsi/gomega v1.43.1
+	github.com/onsi/gomega v1.44.0
 )
 
 require (
@@ -23,13 +23,13 @@ require (
 )
 
 require (
-	code.cloudfoundry.org/tlsconfig v0.67.0 // indirect
+	code.cloudfoundry.org/tlsconfig v0.68.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
-	github.com/google/pprof v0.0.0-20260906184651-6331bc6350fe // indirect
+	github.com/google/pprof v0.0.0-20260926063103-aaccee046517 // indirect
 	github.com/prometheus/client_golang v1.24.1 // indirect
 	github.com/prometheus/client_model v0.6.3 // indirect
-	github.com/prometheus/common v0.71.0 // indirect
+	github.com/prometheus/common v0.72.0 // indirect
 	github.com/prometheus/procfs v0.22.0 // indirect
 	golang.org/x/net v0.59.0 // indirect
 	golang.org/x/sys v0.48.0 // indirect
