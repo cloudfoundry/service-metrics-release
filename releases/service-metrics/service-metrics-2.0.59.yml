@@ -1,0 +1,39 @@
+name: service-metrics
+version: 2.0.59
+commit_hash: 11946b95
+uncommitted_changes: false
+jobs:
+- name: service-metrics
+  version: a5d8038a90d618cb7a83ccc97bdd47f6a3dadb6a3d4a47173f09b9c3910d6057
+  fingerprint: a5d8038a90d618cb7a83ccc97bdd47f6a3dadb6a3d4a47173f09b9c3910d6057
+  sha1: sha256:ca9dd7434886e539e0800b04ee491fb0436d5143b3952fab457957793080f2ea
+  packages:
+  - service-metrics
+- name: service-metrics-test-script
+  version: 4b99b1b0a412226bf3a05a28257313d0d654707776da0677ba6e4afae005c0fc
+  fingerprint: 4b99b1b0a412226bf3a05a28257313d0d654707776da0677ba6e4afae005c0fc
+  sha1: sha256:3ea407baf1d427ebdc4d1dd163d9ade5718f60a5a9dcd89b5e1753ed7f6e36b3
+  packages:
+  - service-metrics-test-script
+packages:
+- name: golang-1.27-linux
+  version: 4a5b3ef32c78d96b58195b90b0fd51789f48090991bef36ca5df0af1b3453544
+  fingerprint: 4a5b3ef32c78d96b58195b90b0fd51789f48090991bef36ca5df0af1b3453544
+  sha1: sha256:b61a499d93f11f51281eafcc64c22225dd3964b9e1e72cd6892c8bd9bf04b5b6
+  dependencies: []
+- name: service-metrics
+  version: 77a0dbd2ab586323e167489e16869b90c64722d85acc23300f8042f1063159c0
+  fingerprint: 77a0dbd2ab586323e167489e16869b90c64722d85acc23300f8042f1063159c0
+  sha1: sha256:07362a4908394ab5d40135d098998449ac12ab5eaa2c8902a0cea89395a56969
+  dependencies:
+  - golang-1.27-linux
+- name: service-metrics-test-script
+  version: a901cca7563291a335b653a05d9a5fd8bdff725215f7ef75c587d2f5a52ba668
+  fingerprint: a901cca7563291a335b653a05d9a5fd8bdff725215f7ef75c587d2f5a52ba668
+  sha1: sha256:6b8f4e9eb999d0f1dbaa43eca279cd9243cae53170639d303419727fdb31d16a
+  dependencies: []
+license:
+  version: b21709eefeb1a84eba0822ce7abe1673d65e2a6249bb0ce05f04e804bb8bc933
+  fingerprint: b21709eefeb1a84eba0822ce7abe1673d65e2a6249bb0ce05f04e804bb8bc933
+  sha1: sha256:7f2a591d2f33f33cedd33e4c24418b8832325665b8ee0e3732c13448b9c0e3a4
+no_compression: false
