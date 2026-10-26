@@ -4,8 +4,8 @@ go 1.26.0
 
 require (
 	code.cloudfoundry.org/go-envstruct v1.7.0
-	code.cloudfoundry.org/go-metric-registry v0.0.0-20261014073100-cbf3e34f5bbb
-	code.cloudfoundry.org/lager/v3 v3.91.0
+	code.cloudfoundry.org/go-metric-registry v0.0.0-20261021065224-1089b57231bb
+	code.cloudfoundry.org/lager/v3 v3.92.0
 	github.com/onsi/ginkgo/v2 v2.33.1
 	github.com/onsi/gomega v1.44.0
 )
@@ -30,7 +30,7 @@ require (
 	github.com/prometheus/client_golang v1.25.0 // indirect
 	github.com/prometheus/client_model v0.6.3 // indirect
 	github.com/prometheus/common v0.72.1 // indirect
-	github.com/prometheus/procfs v0.22.0 // indirect
+	github.com/prometheus/procfs v0.23.0 // indirect
 	golang.org/x/net v0.61.0 // indirect
 	golang.org/x/sys v0.49.0 // indirect
 	golang.org/x/text v0.43.0 // indirect
